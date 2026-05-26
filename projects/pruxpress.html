@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PruXpress — Advisor Portal Redesign | Prabhakar Seenappa</title>
+  <meta name="description" content="Case study: Resolving critical navigation, search, and content discovery failures in Prudential's PruXpress advisor portal through research-led information architecture redesign." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo">Prabhakar<span class="nav__logo-dot"></span></a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html#about"      class="nav__link">About</a></li>
+      <li><a href="../index.html#experience" class="nav__link">Experience</a></li>
+      <li><a href="../index.html#skills"     class="nav__link">Skills</a></li>
+      <li><a href="../index.html#portfolio"  class="nav__link active">Portfolio</a></li>
+      <li><a href="../index.html#blog"       class="nav__link">Blog</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav__cta">Let's Talk</a>
+    <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile">
+    <a href="../index.html#about"      class="nav__mobile-link">About</a>
+    <a href="../index.html#experience" class="nav__mobile-link">Experience</a>
+    <a href="../index.html#portfolio"  class="nav__mobile-link">Portfolio</a>
+    <a href="../index.html#contact"    class="nav__mobile-link">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="project-hero" aria-label="PruXpress case study hero">
+  <div class="project-hero__bg">
+    <div class="thumb--pruxpress" style="width:100%;height:100%;"></div>
+    <div class="project-hero__bg-overlay"></div>
+  </div>
+  <div class="project-hero__inner">
+    <a href="../index.html#portfolio" class="project-hero__back">← Back to Portfolio</a>
+    <span class="project-hero__tag">Fintech &amp; Banking · 2020</span>
+    <h1 class="project-hero__title">PruXpress — Advisor Portal Redesign</h1>
+    <p class="project-hero__subtitle">Resolving critical navigation, search, and content discovery failures in Prudential's advisor-facing portal through a rigorous research-led information architecture overhaul.</p>
+  </div>
+</section>
+
+<!-- PROJECT BRIEF -->
+<div class="cs-container--wide" style="padding-top:0;">
+  <div class="project-brief fu">
+    <div class="project-brief__grid">
+      <div class="project-brief__item">
+        <p class="project-brief__label">Client</p>
+        <p class="project-brief__value">Prudential Financial</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">My Role</p>
+        <p class="project-brief__value">UX Designer &amp; Researcher</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Domain</p>
+        <p class="project-brief__value">Fintech · Insurance · Advisor Tools</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Year</p>
+        <p class="project-brief__value">2020</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Tools</p>
+        <p class="project-brief__value">Figma · Optimal Workshop · Miro</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Overview</p>
+      <h2 class="cs-section-title">When Advisors Can't Find What They Need, Business Stops</h2>
+      <p class="cs-body">PruXpress is Prudential Financial's portal for financial advisors — the primary digital tool through which thousands of licensed representatives access product information, compliance resources, sales materials, and client management tools. When advisors can't find what they need quickly, they either call support (costly), give up (dangerous), or guess (catastrophic in a regulated financial context).</p>
+      <p class="cs-body">Prudential engaged our team through Cognizant to conduct a comprehensive UX assessment and redesign of the portal, with a clear mandate: <em>"Deliver a better than great PruXpress experience."</em> The existing portal had grown organically over years without a coherent information architecture strategy, and it was showing. Advisors were vocal about their frustrations — and the business metrics backed them up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="cs-highlight-box fu">
+      <p class="cs-section-label">The Challenge</p>
+      <h2 class="cs-section-title">Three systemic failures were preventing advisors from doing their jobs.</h2>
+      <p class="cs-body">Initial stakeholder conversations and early heuristic evaluation quickly surfaced a consistent set of usability failures that had compounded over years of organic content growth and minimal UX oversight.</p>
+      <div class="cs-problems">
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">01</span>
+          <p class="cs-problem-text"><strong>"Difficult to find content"</strong> — Advisors consistently reported that locating specific product resources, compliance documents, or training materials required excessive time and was frequently unsuccessful — driving them to phone support as a workaround.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">02</span>
+          <p class="cs-problem-text"><strong>"Search results are irrelevant"</strong> — The portal's search function returned broad, unranked results with no contextual filtering. Advisors had effectively stopped using search and were navigating by memory and browser bookmarks instead.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">03</span>
+          <p class="cs-problem-text"><strong>"Navigation is challenging and confusing"</strong> — The menu structure reflected internal Prudential organizational hierarchies rather than advisor mental models. Categories made sense to content owners, not content users — a textbook IA failure.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">04</span>
+          <p class="cs-problem-text"><strong>Inconsistent and inaccurate information</strong> — Outdated content lived alongside current content with no visual differentiation. Advisors had learned to distrust the portal, creating compliance risk when they acted on stale guidance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Research</p>
+      <h2 class="cs-section-title">Building the Evidence Base for Redesign</h2>
+      <p class="cs-body">This project required a multi-method research approach that could both diagnose the specific information architecture failures and generate the evidence needed to justify a significant structural redesign to risk-averse financial services stakeholders.</p>
+    </div>
+
+    <div class="cs-methods fu">
+      <div class="cs-method">
+        <span class="cs-method__icon">🔄</span>
+        <div class="cs-method__body">
+          <h4>Process Flow Analysis</h4>
+          <p>Mapped the end-to-end technology environment and information flow — understanding how content was created, reviewed, published, and maintained before designing its organization.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🎙️</span>
+        <div class="cs-method__body">
+          <h4>User Interviews</h4>
+          <p>22 moderated interviews with advisors across experience levels (new, experienced, veteran), exploring objectives, daily tasks, trigger events, pain points, and desired capabilities.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🃏</span>
+        <div class="cs-method__body">
+          <h4>Card Sorting</h4>
+          <p>Open and closed card sorting with 40 advisors using Optimal Workshop — uncovering how advisors mentally categorize portal content independent of existing structures.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🌳</span>
+        <div class="cs-method__body">
+          <h4>Tree Testing</h4>
+          <p>Validated proposed IA structures with 30 advisors before any visual design — confirming that the new navigation taxonomy mapped to real advisor mental models.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🏃</span>
+        <div class="cs-method__body">
+          <h4>Task Success Analysis</h4>
+          <p>Timed task completion studies on the current portal for 8 high-frequency advisor tasks — establishing baseline findability metrics to measure improvement against.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🧩</span>
+        <div class="cs-method__body">
+          <h4>Design Thinking Workshop</h4>
+          <p>Full-day co-creation session with Prudential stakeholders and advisor representatives to align on future-state vision, content strategy, and information architecture principles.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-insights fu">
+      <div class="cs-insight">
+        <p class="cs-insight__label">IA Insight</p>
+        <p class="cs-insight__text">Card sorting revealed that advisors organized content primarily by <em>task</em> (what they were trying to accomplish) rather than by <em>product line</em> (how Prudential had structured the portal). This single insight invalidated the entire existing IA and justified a complete structural rebuild.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Search Insight</p>
+        <p class="cs-insight__text">Analytics revealed that 67% of search sessions resulted in zero clicks — advisors were scanning results and abandoning rather than clicking through. The problem wasn't result quality alone; it was result <em>presentation</em> and the absence of filtering mechanisms.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Trust Insight</p>
+        <p class="cs-insight__text">Advisors wanted visible content freshness signals — publication dates, "last verified" indicators, version numbers. In a regulated industry, the date a document was last reviewed matters as much as its content.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Onboarding Insight</p>
+        <p class="cs-insight__text">New advisors (under 12 months) relied almost entirely on colleagues or phone support rather than the portal — a significant missed opportunity to reduce support volume and accelerate new advisor productivity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Design Process</p>
+      <h2 class="cs-section-title">Rebuilding the Architecture from Advisor Mental Models</h2>
+      <p class="cs-body">Armed with clear evidence, I moved through a structured design process that prioritized validation at each stage — critical in a financial services context where the cost of rework after development was prohibitive.</p>
+    </div>
+
+    <div class="cs-phases fu">
+      <div class="cs-phase">
+        <div class="cs-phase__icon">🗂️</div>
+        <h4 class="cs-phase__title">IA Redesign</h4>
+        <p class="cs-phase__desc">Rebuilt the portal taxonomy from card sort data — task-oriented categories replacing product-line organization, validated through tree testing before any visual design began.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">📝</div>
+        <h4 class="cs-phase__title">Paper Prototyping</h4>
+        <p class="cs-phase__desc">Low-fidelity paper prototypes for layout and navigation concepts, tested with advisors in rapid iteration cycles before investing in digital production.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">🔗</div>
+        <h4 class="cs-phase__title">Functional Prototyping</h4>
+        <p class="cs-phase__desc">Interactive Figma prototypes covering all primary advisor journeys — tested in moderated sessions with quantitative task success measurement.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">🎨</div>
+        <h4 class="cs-phase__title">Visual Design &amp; Spec</h4>
+        <p class="cs-phase__desc">High-fidelity designs adhering to Prudential brand guidelines, with full accessibility compliance and detailed developer specifications.</p>
+      </div>
+    </div>
+
+    <div class="cs-mockup fu thumb--pruxpress" role="img" aria-label="PruXpress Advisor Portal — Redesigned Navigation">
+      <!-- background image applied via .thumb--pruxpress in project.css -->
+    </div>
+
+    <div class="fu">
+      <p class="cs-section-label">Core Solutions</p>
+      <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">What Changed</h3>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <span class="cs-learning__num">01</span>
+          <p class="cs-learning__text"><strong>Task-Oriented Navigation Architecture</strong> — Replaced the product-line taxonomy with a task-based structure (e.g., "Prepare for a Client Meeting," "Manage a Policy," "Get Compliant") that matched how advisors thought about their work — not how Prudential organized its products.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">02</span>
+          <p class="cs-learning__text"><strong>Predictive Search with Contextual Filtering</strong> — Rebuilt search with ML-powered predictive suggestions, faceted filtering by content type and date, and relevance ranking that surfaced the most-accessed content first. Added "last verified" dates to all search results.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">03</span>
+          <p class="cs-learning__text"><strong>Content Freshness Indicators</strong> — Introduced visible publication and "last reviewed" dates on all content, with visual callouts for recently updated materials — directly addressing advisor trust concerns and reducing compliance risk.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">04</span>
+          <p class="cs-learning__text"><strong>Advisor Onboarding Path</strong> — Designed a structured "Getting Started" section for new advisors with curated task checklists, video walkthroughs, and quick-reference guides — creating a self-service onboarding path that reduced new-advisor support call volume.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Impact</p>
+      <h2 class="cs-section-title">Findability Transformed</h2>
+    </div>
+
+    <div class="cs-outcomes fu">
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↑ 71%</p>
+        <p class="cs-outcome__label">Improvement in task success rate for content findability tasks — measured against pre-redesign baseline</p>
+      </div>
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↓ 52%</p>
+        <p class="cs-outcome__label">Reduction in average time-on-task for the 8 most frequent advisor portal journeys</p>
+      </div>
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↓ 33%</p>
+        <p class="cs-outcome__label">Decrease in portal-related support call volume within 90 days of launch — directly reducing operational cost</p>
+      </div>
+    </div>
+
+    <div class="fu" style="margin-top:48px;">
+      <p class="cs-section-label">Key Learnings</p>
+      <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">Reflections</h3>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <span class="cs-learning__num">01</span>
+          <p class="cs-learning__text"><strong>Card sorting is the most underused tool in portal redesign.</strong> Every stakeholder had an opinion about navigation. Card sort data silenced the politics — because it represented 40 actual users' mental models, not internal preferences.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">02</span>
+          <p class="cs-learning__text"><strong>Validate IA before visual design — always.</strong> Tree testing before wireframes saved significant rework. Two proposed IA structures failed tree testing before we found one that worked — catching that at paper prototype stage rather than high-fidelity was a major efficiency win.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">03</span>
+          <p class="cs-learning__text"><strong>In regulated industries, trust is a feature.</strong> The content freshness indicators were not originally in scope — advisors surfaced the need during interviews. Adding them turned out to be one of the highest-rated improvements in post-launch feedback.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAVIGATION -->
+<nav class="project-nav" aria-label="Project navigation">
+  <div class="project-nav__inner">
+    <a href="autodesk.html" class="project-nav__item">
+      <span class="project-nav__dir">← Previous Project</span>
+      <span class="project-nav__title">Autodesk — Agent Experience</span>
+    </a>
+    <div class="project-nav__divider" aria-hidden="true"></div>
+    <a href="lifely.html" class="project-nav__item">
+      <span class="project-nav__dir">Next Project →</span>
+      <span class="project-nav__title">Lifely — Life Insurance UX</span>
+    </a>
+  </div>
+</nav>
+
+<button class="btt" aria-label="Back to top">↑</button>
+<script src="../js/main.js"></script>
+</body>
+</html>

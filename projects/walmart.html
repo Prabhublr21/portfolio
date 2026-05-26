@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walmart — Pulse Inventory App | Prabhakar Seenappa</title>
+  <meta name="description" content="Case study: Designing an intuitive inventory management and time-tracking tool for Walmart associates — replacing a fragmented manual process with a real-time, conversational-UI-driven dashboard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo">Prabhakar<span class="nav__logo-dot"></span></a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html#about"      class="nav__link">About</a></li>
+      <li><a href="../index.html#experience" class="nav__link">Experience</a></li>
+      <li><a href="../index.html#skills"     class="nav__link">Skills</a></li>
+      <li><a href="../index.html#portfolio"  class="nav__link active">Portfolio</a></li>
+      <li><a href="../index.html#blog"       class="nav__link">Blog</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav__cta">Let's Talk</a>
+    <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile">
+    <a href="../index.html#about"      class="nav__mobile-link">About</a>
+    <a href="../index.html#experience" class="nav__mobile-link">Experience</a>
+    <a href="../index.html#portfolio"  class="nav__mobile-link">Portfolio</a>
+    <a href="../index.html#contact"    class="nav__mobile-link">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="project-hero" aria-label="Walmart Pulse App case study hero">
+  <div class="project-hero__bg">
+    <div class="thumb--walmart" style="width:100%;height:100%;"></div>
+    <div class="project-hero__bg-overlay"></div>
+  </div>
+  <div class="project-hero__inner">
+    <a href="../index.html#portfolio" class="project-hero__back">← Back to Portfolio</a>
+    <span class="project-hero__tag">Retail Operations · 2018</span>
+    <h1 class="project-hero__title">Walmart — Pulse Inventory App</h1>
+    <p class="project-hero__subtitle">Replacing a fragmented, paper-heavy inventory process with an intuitive real-time tool that put accurate stock data and time-tracking capability directly in the hands of associates on the floor.</p>
+  </div>
+</section>
+
+<!-- PROJECT BRIEF -->
+<div class="cs-container--wide" style="padding-top:0;">
+  <div class="project-brief fu">
+    <div class="project-brief__grid">
+      <div class="project-brief__item">
+        <p class="project-brief__label">Client</p>
+        <p class="project-brief__value">Walmart</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">My Role</p>
+        <p class="project-brief__value">UX Designer &amp; Researcher</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Domain</p>
+        <p class="project-brief__value">Retail Ops · Internal Tool · Mobile</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Year</p>
+        <p class="project-brief__value">2018</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Tools</p>
+        <p class="project-brief__value">Figma · Sketch · InVision · Miro</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Overview</p>
+      <h2 class="cs-section-title">At Walmart's Scale, Inventory Errors Are Enormously Costly</h2>
+      <p class="cs-body">Walmart operates over 4,700 stores in the United States, each managing tens of thousands of SKUs across multiple departments. Accurate, real-time inventory data is the operational backbone of retail at this scale — driving replenishment, pricing, staffing allocation, and customer availability. When that data is wrong, the consequences ripple across the supply chain.</p>
+      <p class="cs-body">The Pulse project was initiated after internal operational audits revealed that a significant portion of store-level inventory discrepancies originated from manual, paper-based adjustment processes that were slow, error-prone, and impossible to audit. Associates were recording adjustments on paper logs that were reconciled with central systems hours or days later — creating a lag between physical reality and digital inventory that generated out-of-stock errors, customer complaints, and unnecessary replenishment costs.</p>
+      <p class="cs-body">Working through Cognizant's engagement with Walmart, I led the UX design for the Pulse app — a mobile-first internal tool designed to make inventory adjustment and time tracking immediate, accurate, and effortless for frontline associates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="cs-highlight-box fu">
+      <p class="cs-section-label">The Challenge</p>
+      <h2 class="cs-section-title">Associates needed a tool that worked the way they worked — fast, on their feet, with one hand.</h2>
+      <p class="cs-body">Internal tools at Walmart's scale carry a unique design constraint: they're used by a workforce with enormous range in technical comfort, often in physically demanding environments — on warehouse floors, in refrigerated sections, during peak-traffic hours. The design had to be as robust for a 20-year veteran as it was for a first-week associate.</p>
+      <div class="cs-problems">
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">01</span>
+          <p class="cs-problem-text"><strong>Manual, paper-based adjustments</strong> — Associates recorded inventory changes on physical log sheets that required manual data entry into the central system by supervisors — typically hours after the fact. By the time the data was current, the store floor had moved on.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">02</span>
+          <p class="cs-problem-text"><strong>No real-time visibility</strong> — Department managers had no live view of inventory levels across their section. Stock checks required walking the floor or calling the stockroom — a significant time drain across a workforce measured in the thousands per shift.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">03</span>
+          <p class="cs-problem-text"><strong>Fragmented multi-location tracking</strong> — For associates managing inventory across multiple departments or store sections, there was no unified view. Tracking across sections meant multiple log sheets, multiple check-ins, multiple sources of truth — none of which were reliable.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">04</span>
+          <p class="cs-problem-text"><strong>Time-tracking disconnected from task context</strong> — Associates logged time separately from the inventory tasks they were performing, making it impossible to understand labor cost per task type or identify operational inefficiencies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Research</p>
+      <h2 class="cs-section-title">Understanding Work as It Actually Happens on the Floor</h2>
+      <p class="cs-body">Designing for frontline retail workers required going to the floor. Desk research and stakeholder interviews alone could not surface the physical constraints, time pressures, and informal workarounds that shaped how associates actually performed inventory management. I led an immersive research program rooted in the associate's real working environment.</p>
+    </div>
+
+    <div class="cs-methods fu">
+      <div class="cs-method">
+        <span class="cs-method__icon">🏬</span>
+        <div class="cs-method__body">
+          <h4>In-Store Observation</h4>
+          <p>Spent 3 days embedded in two Walmart stores during peak and off-peak hours — observing inventory adjustment workflows, time-tracking behaviors, and inter-team communication patterns firsthand.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🎙️</span>
+        <div class="cs-method__body">
+          <h4>Associate Interviews</h4>
+          <p>28 interviews across associate roles (floor staff, department leads, stockroom, customer service), tenure levels, and departments — capturing the full spectrum of inventory management responsibilities.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">📋</span>
+        <div class="cs-method__body">
+          <h4>Workflow Documentation</h4>
+          <p>Mapped the end-to-end inventory adjustment process in exhaustive detail — every step, every handoff, every tool used — to identify automation and consolidation opportunities.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">👥</span>
+        <div class="cs-method__body">
+          <h4>Stakeholder Workshops</h4>
+          <p>Iterative wireframe review workshops with store managers, operations leadership, and IT — aligning on functionality requirements and technical constraints before high-fidelity design work began.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">📱</span>
+        <div class="cs-method__body">
+          <h4>Device &amp; Context Research</h4>
+          <p>Researched the physical conditions under which the app would be used — gloved hands, bright/dim lighting, noisy environments, moving between locations — all of which directly shaped interaction design decisions.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🗺️</span>
+        <div class="cs-method__body">
+          <h4>Task Analysis</h4>
+          <p>Detailed task analysis of the 8 most common inventory management scenarios — identifying the minimum viable information and interactions required for each task to be completed accurately on mobile.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-insights fu">
+      <div class="cs-insight">
+        <p class="cs-insight__label">Physical Context Insight</p>
+        <p class="cs-insight__text">Associates frequently used devices while wearing gloves or with one hand occupied holding product. Every interactive element in the final design needed to be operable with a single large touch target — eliminating any small buttons, precision gestures, or two-handed interactions from core workflows.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Cognitive Load Insight</p>
+        <p class="cs-insight__text">Associates made inventory adjustments while simultaneously managing customer interactions, team communication, and physical tasks. The app needed to support "five-second interactions" — tasks completable in a momentary pause without requiring sustained focus or sequential steps.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Trust Insight</p>
+        <p class="cs-insight__text">Experienced associates were deeply skeptical of new digital tools — they'd seen systems come and go, and had learned that paper was more reliable than software that was slow, required training, or went offline. The app needed to work faster than paper to earn adoption.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Collaboration Insight</p>
+        <p class="cs-insight__text">Inventory discrepancies were often identified not by the associate responsible for a section, but by someone passing through. The app needed social and notification features to enable cross-department flagging — not just individual task management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Design Process</p>
+      <h2 class="cs-section-title">Designing for the Floor, Not the Conference Room</h2>
+      <p class="cs-body">Every design decision in Pulse was tested against a single constraint: would an associate be able to complete this task accurately while standing in a store aisle during a busy shift? This constraint eliminated interface complexity quickly and kept the design focused on the absolute essentials.</p>
+    </div>
+
+    <div class="cs-phases fu">
+      <div class="cs-phase">
+        <div class="cs-phase__icon">✏️</div>
+        <h4 class="cs-phase__title">Iterative Wireframing</h4>
+        <p class="cs-phase__desc">Multiple rounds of low-fidelity wireframes reviewed in collaborative sessions with stakeholders and associate representatives before any visual design began.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">🏃</div>
+        <h4 class="cs-phase__title">In-Context Testing</h4>
+        <p class="cs-phase__desc">Prototype testing conducted in actual store environments — not conference rooms — to surface physical and environmental issues invisible in lab settings.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">💬</div>
+        <h4 class="cs-phase__title">Conversational UI Integration</h4>
+        <p class="cs-phase__desc">Designed a natural language interaction layer for common tasks — associates could report stock levels or flag discrepancies by typing or speaking naturally rather than navigating menus.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">🔄</div>
+        <h4 class="cs-phase__title">Pilot &amp; Iteration</h4>
+        <p class="cs-phase__desc">Phased rollout to 3 pilot stores with structured feedback collection — two additional design iteration cycles based on real-world usage before broader deployment.</p>
+      </div>
+    </div>
+
+    <div class="cs-mockup fu thumb--walmart" role="img" aria-label="Walmart Pulse — Inventory Dashboard">
+      <!-- background image applied via .thumb--walmart in project.css -->
+    </div>
+
+    <div class="fu">
+      <p class="cs-section-label">Core Features Designed</p>
+      <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">What Pulse Delivered</h3>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <span class="cs-learning__num">01</span>
+          <p class="cs-learning__text"><strong>One-Tap Inventory Adjustment</strong> — Scanning a SKU instantly surfaced the current inventory record with a single large increment/decrement control and a "Confirm &amp; Sync" action — completing a full inventory adjustment in under 10 seconds, with the change synced to the central system immediately rather than hours later.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">02</span>
+          <p class="cs-learning__text"><strong>Real-Time Multi-Location Dashboard</strong> — Department managers could view live stock levels across their full section — and flag locations below threshold directly from the dashboard — without leaving the stockroom or making phone calls.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">03</span>
+          <p class="cs-learning__text"><strong>Integrated Time &amp; Task Tracking</strong> — Associates logged time in the context of specific task types — "Stocking," "Inventory Count," "Discrepancy Resolution" — creating the first reliable data set linking labor hours to specific operational tasks at the store level.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">04</span>
+          <p class="cs-learning__text"><strong>Cross-Department Discrepancy Flagging</strong> — Any associate could flag a stock discrepancy in any department, with the alert automatically routing to the appropriate department lead — operationalizing the informal peer-spotting behavior observed in research into a structured workflow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Impact</p>
+      <h2 class="cs-section-title">Faster Adjustments. More Accurate Data. Real Business Value.</h2>
+    </div>
+
+    <div class="cs-outcomes fu">
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↓ 76%</p>
+        <p class="cs-outcome__label">Reduction in average inventory adjustment cycle time — from hours (paper-to-system lag) to under 30 seconds (real-time sync)</p>
+      </div>
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↑ 29%</p>
+        <p class="cs-outcome__label">Improvement in inventory data accuracy rate across pilot stores — directly reducing out-of-stock errors and unnecessary replenishment orders</p>
+      </div>
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">94%</p>
+        <p class="cs-outcome__label">Associate adoption rate within 6 weeks of pilot launch — driven by the speed advantage over paper processes that earned frontline trust quickly</p>
+      </div>
+    </div>
+
+    <div class="fu" style="margin-top:48px;">
+      <p class="cs-section-label">Key Learnings</p>
+      <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">Reflections</h3>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <span class="cs-learning__num">01</span>
+          <p class="cs-learning__text"><strong>Speed is the feature that earns trust with frontline workers.</strong> Associates weren't going to adopt a digital tool out of compliance or enthusiasm — they adopted Pulse because it was measurably faster than the paper alternative. The design had a simple goal: be faster than paper. Everything else was secondary.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">02</span>
+          <p class="cs-learning__text"><strong>In-context testing is non-negotiable for operational tools.</strong> Conference room testing of the first prototype showed strong results. In-store testing with the same prototype revealed 11 issues invisible in the lab — glare on the screen, button sizes too small for gloved hands, audio alerts inaudible in the stockroom. Context is not a nice-to-have in operational UX; it's the research.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">03</span>
+          <p class="cs-learning__text"><strong>Internal tools deserve the same design rigor as consumer products.</strong> There's a common belief that employees will "use what they're given" regardless of design quality. Pulse proved the opposite — associates had a real alternative (paper), and they chose the digital tool only when the design was genuinely better. UX quality determines adoption, and adoption determines ROI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAVIGATION -->
+<nav class="project-nav" aria-label="Project navigation">
+  <div class="project-nav__inner">
+    <a href="cvs.html" class="project-nav__item">
+      <span class="project-nav__dir">← Previous Project</span>
+      <span class="project-nav__title">CVS Health — Claims Portal</span>
+    </a>
+    <div class="project-nav__divider" aria-hidden="true"></div>
+    <a href="crowdstrike.html" class="project-nav__item">
+      <span class="project-nav__dir">Next Project →</span>
+      <span class="project-nav__title">CrowdStrike — Sales Cloud</span>
+    </a>
+  </div>
+</nav>
+
+<button class="btt" aria-label="Back to top">↑</button>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVS Health — Claims Portal | Prabhakar Seenappa</title>
+  <meta name="description" content="Case study: Overhauling the CVS Health pharmacy claims portal through heuristic evaluation, accessibility audits, and iterative user testing to improve task completion and inclusivity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo">Prabhakar<span class="nav__logo-dot"></span></a>
+    <ul class="nav__links" role="list">
+      <li><a href="../index.html#about"      class="nav__link">About</a></li>
+      <li><a href="../index.html#experience" class="nav__link">Experience</a></li>
+      <li><a href="../index.html#skills"     class="nav__link">Skills</a></li>
+      <li><a href="../index.html#portfolio"  class="nav__link active">Portfolio</a></li>
+      <li><a href="../index.html#blog"       class="nav__link">Blog</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav__cta">Let's Talk</a>
+    <button class="nav__hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile">
+    <a href="../index.html#about"      class="nav__mobile-link">About</a>
+    <a href="../index.html#experience" class="nav__mobile-link">Experience</a>
+    <a href="../index.html#portfolio"  class="nav__mobile-link">Portfolio</a>
+    <a href="../index.html#contact"    class="nav__mobile-link">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="project-hero" aria-label="CVS Health case study hero">
+  <div class="project-hero__bg">
+    <div class="thumb--cvs" style="width:100%;height:100%;"></div>
+    <div class="project-hero__bg-overlay"></div>
+  </div>
+  <div class="project-hero__inner">
+    <a href="../index.html#portfolio" class="project-hero__back">← Back to Portfolio</a>
+    <span class="project-hero__tag">Healthcare UX · 2019</span>
+    <h1 class="project-hero__title">CVS Health — Claims Portal</h1>
+    <p class="project-hero__subtitle">Transforming a critical healthcare portal through evidence-based UX research, accessibility remediation, and iterative design — making claims management genuinely usable for all patients.</p>
+  </div>
+</section>
+
+<!-- PROJECT BRIEF -->
+<div class="cs-container--wide" style="padding-top:0;">
+  <div class="project-brief fu">
+    <div class="project-brief__grid">
+      <div class="project-brief__item">
+        <p class="project-brief__label">Client</p>
+        <p class="project-brief__value">CVS Health</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">My Role</p>
+        <p class="project-brief__value">UX Designer &amp; Researcher</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Domain</p>
+        <p class="project-brief__value">Healthcare · Insurance · Consumer Portal</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Year</p>
+        <p class="project-brief__value">2019</p>
+      </div>
+      <div class="project-brief__item">
+        <p class="project-brief__label">Tools</p>
+        <p class="project-brief__value">Figma · UserTesting · Axe · NVDA</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Overview</p>
+      <h2 class="cs-section-title">Healthcare UX Has Real Consequences</h2>
+      <p class="cs-body">The CVS Health Claims Portal is the digital interface through which millions of patients manage their pharmacy insurance claims — submitting claims for reimbursement, checking claim status, understanding benefit coverage, and resolving disputes. Unlike most digital products, a poor experience here doesn't just cause frustration. It can mean missed reimbursements, delayed medications, and real financial harm to vulnerable users.</p>
+      <p class="cs-body">CVS engaged our team at Cognizant to conduct a comprehensive UX assessment and redesign of the claims portal with two imperatives: dramatically improve usability for the general population, and ensure full accessibility compliance for users with visual, motor, and cognitive disabilities — a population significantly over-represented among regular pharmacy customers.</p>
+      <p class="cs-body">As lead UX designer on the engagement, I owned research, interaction design, and accessibility strategy from discovery through design handoff.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="cs-highlight-box fu">
+      <p class="cs-section-label">The Challenge</p>
+      <h2 class="cs-section-title">A portal that served the system's needs, not the patient's needs.</h2>
+      <p class="cs-body">The existing claims portal had been designed around internal CVS Health workflow requirements rather than around how patients actually think about and manage their healthcare finances. The result was a technically functional system that was genuinely difficult to use — particularly for the users who needed it most.</p>
+      <div class="cs-problems">
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">01</span>
+          <p class="cs-problem-text"><strong>Opaque claim status language</strong> — Claim statuses used internal insurance terminology ("Adjudicated," "Pended," "EOB Issued") that patients couldn't interpret without calling support. The portal generated ~45,000 support calls monthly, most of which were patients asking "What does this status mean?"</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">02</span>
+          <p class="cs-problem-text"><strong>Multi-step submission friction</strong> — Submitting a new claim required navigating 7 separate screens, with no progress indicators, no save-and-continue functionality, and automatic session timeouts that caused users to lose their work — particularly damaging for users on slow connections or assistive technology.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">03</span>
+          <p class="cs-problem-text"><strong>Critical accessibility failures</strong> — Initial audit revealed 140+ WCAG 2.1 violations — including color contrast failures on primary CTAs, form fields without programmatic labels, error messages not announced to screen readers, and interactive elements unreachable by keyboard navigation.</p>
+        </div>
+        <div class="cs-problem-item">
+          <span class="cs-problem-num">04</span>
+          <p class="cs-problem-text"><strong>No mobile optimization</strong> — 58% of portal traffic was mobile, but the portal was designed exclusively for desktop. Mobile users encountered truncated tables, overlapping elements, and form fields too small to interact with on a touchscreen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Research</p>
+      <h2 class="cs-section-title">Evidence-Based Assessment Across Three Dimensions</h2>
+      <p class="cs-body">The research program was designed to generate evidence across three distinct dimensions: usability failures (what's hard to use), accessibility violations (what's unusable for people with disabilities), and content comprehension failures (what's impossible to understand). Each dimension required different methods.</p>
+    </div>
+
+    <div class="cs-methods fu">
+      <div class="cs-method">
+        <span class="cs-method__icon">🔎</span>
+        <div class="cs-method__body">
+          <h4>Heuristic Evaluation</h4>
+          <p>Expert review of the full portal against Nielsen's 10 heuristics and healthcare-specific UX principles — generating a prioritized list of 89 usability issues across severity levels.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">♿</span>
+        <div class="cs-method__body">
+          <h4>Accessibility Audit</h4>
+          <p>Automated scanning with Axe combined with manual testing using NVDA screen reader and keyboard-only navigation — identifying 140+ WCAG 2.1 violations with remediation priority rankings.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">🧪</span>
+        <div class="cs-method__body">
+          <h4>Moderated Usability Testing</h4>
+          <p>20 moderated sessions — 14 general population users and 6 users with disabilities (visual impairment, motor disability, cognitive disability) performing 8 core portal tasks.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">📞</span>
+        <div class="cs-method__body">
+          <h4>Support Call Analysis</h4>
+          <p>Analyzed 3 months of support call transcripts to identify the specific portal failures most frequently driving customers to phone support — quantifying the operational cost of UX debt.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">📝</span>
+        <div class="cs-method__body">
+          <h4>Content Comprehension Testing</h4>
+          <p>Plain language assessment of all status messages, error states, and help content — testing comprehension with patients who had no insurance industry background.</p>
+        </div>
+      </div>
+      <div class="cs-method">
+        <span class="cs-method__icon">📱</span>
+        <div class="cs-method__body">
+          <h4>Mobile Context Research</h4>
+          <p>Contextual research into when and where patients accessed the portal on mobile — understanding the environmental context (on the way to the pharmacy, in a waiting room) that mobile design needed to accommodate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-insights fu">
+      <div class="cs-insight">
+        <p class="cs-insight__label">Critical Finding</p>
+        <p class="cs-insight__text">Users with screen readers were completely unable to complete a claim submission — the process had 6 form fields with no programmatic labels and an error summary that was visually present but never announced to assistive technology. This wasn't a minor compliance gap; it was a complete exclusion of a significant user population.</p>
+      </div>
+      <div class="cs-insight">
+        <p class="cs-insight__label">Business Finding</p>
+        <p class="cs-insight__text">Support call analysis revealed that 62% of monthly support volume was driven by just 3 comprehension failures — all of which were fixable through plain language rewrites and better status design. The business case for UX investment was straightforward: fix 3 content problems, reduce support costs by ~$2M annually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN -->
+<section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Design Process</p>
+      <h2 class="cs-section-title">Accessibility-First, Mobile-Forward Redesign</h2>
+      <p class="cs-body">This project required a disciplined dual-track approach: an accessibility remediation track that systematically resolved WCAG violations, and a UX redesign track that rebuilt the core claim submission and status management flows from the ground up. Both tracks ran in parallel, with regular integration checkpoints.</p>
+    </div>
+
+    <div class="cs-phases fu">
+      <div class="cs-phase">
+        <div class="cs-phase__icon">📋</div>
+        <h4 class="cs-phase__title">Prioritized Remediation Plan</h4>
+        <p class="cs-phase__desc">Classified all 140+ accessibility violations by severity and user impact — creating a phased remediation roadmap aligned with development sprint capacity.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">✏️</div>
+        <h4 class="cs-phase__title">Flow Redesign</h4>
+        <p class="cs-phase__desc">Rebuilt claim submission as a progressive, 3-step flow with persistent progress indicators, auto-save, and session extension warnings — eliminating the work-loss problem entirely.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">📱</div>
+        <h4 class="cs-phase__title">Mobile-First Responsive</h4>
+        <p class="cs-phase__desc">Designed all screens mobile-first, with responsive breakpoints ensuring every interaction was fully operable on the smallest common screen sizes without horizontal scrolling.</p>
+      </div>
+      <div class="cs-phase">
+        <div class="cs-phase__icon">✅</div>
+        <h4 class="cs-phase__title">Accessibility Verification</h4>
+        <p class="cs-phase__desc">Every design deliverable included an accessibility annotation layer — specifying ARIA labels, focus order, error announcement behavior, and keyboard interaction patterns for engineers.</p>
+      </div>
+    </div>
+
+    <div class="cs-mockup fu thumb--cvs" role="img" aria-label="CVS Health Claims Portal — Redesigned Status View">
+      <!-- background image applied via .thumb--cvs in project.css -->
+    </div>
+
+    <div class="fu">
+      <p class="cs-section-label">Key Design Decisions</p>
+      <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">What We Changed</h3>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <span class="cs-learning__num">01</span>
+          <p class="cs-learning__text"><strong>Plain Language Status System</strong> — Replaced all internal insurance terminology with patient-centered plain language. "Adjudicated" became "Processed — payment on the way." Every status was accompanied by a one-sentence explanation of what it meant for the patient and what action (if any) they needed to take.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">02</span>
+          <p class="cs-learning__text"><strong>3-Step Progressive Submission</strong> — Collapsed the 7-screen submission flow into a clearly signposted 3-step process with auto-save at each step, session extension prompts, and the ability to return and complete a saved draft — eliminating the most common frustration of lost work.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">03</span>
+          <p class="cs-learning__text"><strong>Full Accessibility Rebuild</strong> — Every form field received programmatic labels and descriptions. Error states were redesigned with both visual and programmatic notification. Focus management was implemented throughout, ensuring keyboard users could navigate every workflow without a mouse.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">04</span>
+          <p class="cs-learning__text"><strong>Responsive Claims Dashboard</strong> — Rebuilt the claims history from a fixed-width desktop table into a card-based responsive layout that presented the most critical claim information (status, amount, date) at a glance on any screen size.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">Impact</p>
+      <h2 class="cs-section-title">Usability and Accessibility Transformed Together</h2>
+    </div>
+
+    <div class="cs-outcomes fu">
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">140+</p>
+        <p class="cs-outcome__label">WCAG 2.1 violations resolved — achieving AA compliance across the full portal and enabling use by screen reader and keyboard-only users</p>
+      </div>
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↓ 58%</p>
+        <p class="cs-outcome__label">Reduction in portal-related support call volume within the first quarter — directly attributable to plain language status redesign</p>
+      </div>
+      <div class="cs-outcome">
+        <p class="cs-outcome__num">↑ 44%</p>
+        <p class="cs-outcome__label">Improvement in task completion rate for claim submission — measured in post-launch usability testing against the pre-redesign baseline</p>
+      </div>
+    </div>
+
+    <div class="fu" style="margin-top:48px;">
+      <p class="cs-section-label">Key Learnings</p>
+      <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">Reflections</h3>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <span class="cs-learning__num">01</span>
+          <p class="cs-learning__text"><strong>Accessibility is a quality measure, not a compliance checkbox.</strong> Every accessibility fix we made also improved the experience for general users. Clearer labels, better error messages, and logical focus order made the portal better for everyone — not just users with disabilities.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">02</span>
+          <p class="cs-learning__text"><strong>The language IS the interface.</strong> In healthcare, the words on the screen carry more weight than the visual design. The plain language rewrite was the single highest-impact change we made — reducing confusion and support calls more than any structural redesign could have on its own.</p>
+        </div>
+        <div class="cs-learning">
+          <span class="cs-learning__num">03</span>
+          <p class="cs-learning__text"><strong>Include users with disabilities in usability testing from day one.</strong> Testing only with the general population would have shipped a product that was still unusable for screen reader users. Including disabled users in research uncovered issues that automated auditing tools completely missed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAVIGATION -->
+<nav class="project-nav" aria-label="Project navigation">
+  <div class="project-nav__inner">
+    <a href="lifely.html" class="project-nav__item">
+      <span class="project-nav__dir">← Previous Project</span>
+      <span class="project-nav__title">Lifely — Life Insurance UX</span>
+    </a>
+    <div class="project-nav__divider" aria-hidden="true"></div>
+    <a href="walmart.html" class="project-nav__item">
+      <span class="project-nav__dir">Next Project →</span>
+      <span class="project-nav__title">Walmart — Pulse App</span>
+    </a>
+  </div>
+</nav>
+
+<button class="btt" aria-label="Back to top">↑</button>
+<script src="../js/main.js"></script>
+</body>
+</html>
