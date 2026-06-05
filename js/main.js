@@ -208,21 +208,39 @@ filterBtns.forEach(btn => {
 })();
 
 /* ------------------------------------------------------------
-   CONTACT FORM (fake submit)
+   CONTACT FORM — Web3Forms (sends to prabhublr21@gmail.com)
 ------------------------------------------------------------ */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = contactForm.querySelector('.form-btn');
     if (!btn) return;
+
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      const success = document.querySelector('.form-success');
-      if (success) success.style.display = 'block';
-    }, 1200);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(contactForm)
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        contactForm.style.display = 'none';
+        const success = document.querySelector('.form-success');
+        if (success) success.style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or email me directly.');
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      alert('Network error. Please check your connection and try again.');
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }
   });
 }
 

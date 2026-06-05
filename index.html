@@ -828,16 +828,16 @@
       <article class="blog-card fu">
         <div class="blog-card__img">
           <div class="blog-card__img-inner b1">
-            <span class="blog-card__emoji" aria-hidden="true">🤖</span>
+            <span class="blog-card__emoji" aria-hidden="true">🧠</span>
           </div>
         </div>
         <div class="blog-card__body">
           <div class="blog-card__meta">
-            <span class="blog-card__tag">AI + Research</span>
-            <span class="blog-card__date">Apr 2025</span>
+            <span class="blog-card__tag">AI Agents + UX</span>
+            <span class="blog-card__date">Jun 2026</span>
           </div>
-          <h3 class="blog-card__title">Using AI to Supercharge Your UX Research Synthesis Process</h3>
-          <p class="blog-card__exc">How I leverage LLM tools to distill hundreds of interview quotes into actionable insight clusters in minutes — without sacrificing rigor.</p>
+          <h3 class="blog-card__title">Designing Trust Into AI Agents: What UX Gets Wrong</h3>
+          <p class="blog-card__exc">As autonomous AI agents take on multi-step tasks, the old "error prevention" playbook breaks down. Here's how I'm rethinking trust signals, recoverable states, and explainability for agentic UX.</p>
           <span class="blog-card__link">Read More</span>
         </div>
       </article>
@@ -845,16 +845,16 @@
       <article class="blog-card fu">
         <div class="blog-card__img">
           <div class="blog-card__img-inner b2">
-            <span class="blog-card__emoji" aria-hidden="true">💬</span>
+            <span class="blog-card__emoji" aria-hidden="true">📐</span>
           </div>
         </div>
         <div class="blog-card__body">
           <div class="blog-card__meta">
-            <span class="blog-card__tag">Conversation Design</span>
-            <span class="blog-card__date">Mar 2025</span>
+            <span class="blog-card__tag">Design Systems</span>
+            <span class="blog-card__date">Jun 2026</span>
           </div>
-          <h3 class="blog-card__title">Designing for AI: Key Principles for Intuitive LLM-Powered Interfaces</h3>
-          <p class="blog-card__exc">What traditional UX principles need to evolve when the system's response is probabilistic, not deterministic.</p>
+          <h3 class="blog-card__title">AI-Generated Components vs. Human-Crafted Design Systems</h3>
+          <p class="blog-card__exc">After testing Figma AI, Microsoft Copilot, and Claude against hand-built component libraries, here's what AI still can't replicate — and where it genuinely saves hours every week.</p>
           <span class="blog-card__link">Read More</span>
         </div>
       </article>
@@ -862,16 +862,16 @@
       <article class="blog-card fu">
         <div class="blog-card__img">
           <div class="blog-card__img-inner b3">
-            <span class="blog-card__emoji" aria-hidden="true">✏️</span>
+            <span class="blog-card__emoji" aria-hidden="true">🔍</span>
           </div>
         </div>
         <div class="blog-card__body">
           <div class="blog-card__meta">
-            <span class="blog-card__tag">Design Workflow</span>
-            <span class="blog-card__date">Feb 2025</span>
+            <span class="blog-card__tag">UX Research</span>
+            <span class="blog-card__date">May 2026</span>
           </div>
-          <h3 class="blog-card__title">From Wireframe to Prompt: Generative AI in the Modern UX Toolkit</h3>
-          <p class="blog-card__exc">A practical guide to the AI tools genuinely saving UX designers hours per week — and the ones that are just hype.</p>
+          <h3 class="blog-card__title">Synthetic Users Are Here — Should UX Researchers Be Worried?</h3>
+          <p class="blog-card__exc">Tools that simulate user responses with AI are gaining traction. I ran a head-to-head test comparing synthetic personas against real user sessions on a cybersecurity dashboard — the gap is smaller than you'd think.</p>
           <span class="blog-card__link">Read More</span>
         </div>
       </article>
@@ -931,6 +931,13 @@
         <div class="contact__form-card">
           <h3 class="contact__form-title">Send a Message</h3>
           <form id="contactForm" novalidate>
+            <!-- Web3Forms config — replace YOUR_ACCESS_KEY with key from web3forms.com/create -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="New message from prabhakarfolio.com" />
+            <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+            <input type="hidden" name="redirect" value="false" />
+            <!-- Honeypot spam trap — must stay empty -->
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
             <div class="form-row">
               <div class="form-group">
                 <label class="form-lbl" for="firstName">First Name</label>
@@ -947,7 +954,7 @@
             </div>
             <div class="form-group">
               <label class="form-lbl" for="subject">Subject</label>
-              <input class="form-input" type="text" id="subject" name="subject" placeholder="Role opportunity / Project collaboration" />
+              <input class="form-input" type="text" id="subject" name="message_subject" placeholder="Role opportunity / Project collaboration" />
             </div>
             <div class="form-group">
               <label class="form-lbl" for="message">Message</label>
