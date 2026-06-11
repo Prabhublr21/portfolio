@@ -524,6 +524,7 @@
    PROJECT HERO THUMBNAIL GRADIENTS
    (match portfolio card colors on case study pages)
 ------------------------------------------------------------ */
+.thumb--venturebacked { background: url('../images/vbc.jpg')        center/cover no-repeat, linear-gradient(140deg,#0F1419,#1F2933); }
 .thumb--crowdstrike { background: url('../images/crowdstrike.jpg') center/cover no-repeat, linear-gradient(140deg,#0D1B2A,#1D3050); }
 .thumb--autodesk    { background: url('../images/autodesk.jpg')    center/cover no-repeat, linear-gradient(140deg,#1A1A1A,#303030); }
 .thumb--pruxpress   { background: url('../images/pruxpress.jpg')   center/cover no-repeat, linear-gradient(140deg,#0F2040,#1E3866); }
