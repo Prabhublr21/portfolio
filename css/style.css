@@ -399,7 +399,7 @@ button, input, textarea { font: inherit; border: none; outline: none; background
   width: 340px; height: 340px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center;
   box-shadow: var(--sh-lg);
   display: block;
 }
@@ -476,7 +476,7 @@ button, input, textarea { font: inherit; border: none; outline: none; background
   width: 240px; height: 240px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center;
   display: block;
 }
 
