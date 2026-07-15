@@ -4,26 +4,34 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
-   1. DESIGN TOKENS  (cool-neutral palette, matches snapshot)
+   1. DESIGN TOKENS  (Warm Gold theme — approved 2026-07-07)
 ------------------------------------------------------------ */
 :root {
   /* Palette */
-  --bg:           #F5F5F5;   /* page background  */
-  --bg-white:     #FFFFFF;   /* alternating white sections */
-  --bg-dark:      #222222;   /* stats bar · footer */
-  --surface:      #FFFFFF;
+  --bg:              #FFFFFF;   /* page background (pure white)   */
+  --bg-white:        #FFFFFF;   /* alternating white sections     */
+  --bg-warm:         #FFFCF5;   /* subtle warm section background */
+  --bg-dark:         #1A1408;   /* stats bar · footer (warm near-black) */
+  --surface:         #FFFFFF;
 
-  --text-100:     #1E1E1E;   /* headings */
-  --text-200:     #444444;   /* body */
-  --text-300:     #777777;   /* muted */
-  --text-400:     #AAAAAA;   /* light / placeholders */
+  --text-100:        #1A1408;   /* headings (warm near-black)     */
+  --text-200:        #6B5D45;   /* body (warm gray)               */
+  --text-300:        #9B8B72;   /* muted (warm mid-gray)          */
+  --text-400:        #C4B7A0;   /* light / placeholders           */
 
-  --border:       #E5E5E5;
-  --accent:       #1E1E1E;
-  --highlight:    #4F6479;   /* blue-grey tag accent */
+  --border:          #F0E4CC;   /* cream border                   */
+  --border-strong:   #E4D3AB;   /* stronger cream border          */
 
-  --prog-bg:      #E0E0E0;
-  --prog-fill:    #1E1E1E;
+  --gold-primary:    #F4B400;   /* CTAs, active states, accents   */
+  --gold-saffron:    #F4A300;   /* hover states, link accent      */
+  --gold-rich:       #D4AF37;   /* dividers, decorative dots      */
+  --warm-highlight:  #FFD8A8;   /* tag pills, soft warm surfaces  */
+
+  --accent:          #F4B400;   /* primary accent = gold          */
+  --highlight:       #F4A300;   /* saffron for text-accent uses   */
+
+  --prog-bg:         #F0E4CC;
+  --prog-fill:       linear-gradient(90deg, #F4B400, #F4A300);
 
   /* Typography */
   --font:         'Inter', system-ui, -apple-system, sans-serif;
@@ -118,8 +126,8 @@ button, input, textarea { font: inherit; border: none; outline: none; background
   border-radius: var(--r-full);
   transition: all var(--ease);
 }
-.btn--dark    { background: var(--text-100); color: #fff; }
-.btn--dark:hover { background: #333; transform: translateY(-1px); box-shadow: var(--sh-md); }
+.btn--dark    { background: var(--gold-primary); color: var(--text-100); box-shadow: 0 4px 18px rgba(244,180,0,0.28); }
+.btn--dark:hover { background: var(--gold-saffron); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(244,163,0,0.38); }
 .btn--outline { border: 1.5px solid var(--border); color: var(--text-100); }
 .btn--outline:hover { border-color: var(--text-100); transform: translateY(-1px); }
 .btn--ghost   { padding: 0; color: var(--highlight); font-size: 13px; font-weight: 600; }
@@ -149,8 +157,8 @@ button, input, textarea { font: inherit; border: none; outline: none; background
   padding: 3px 10px;
   border-radius: var(--r-full);
 }
-.chip--light { color: var(--highlight); background: rgba(79,100,121,.1); }
-.chip--dark  { color: #fff; background: var(--highlight); }
+.chip--light { color: var(--text-100); background: var(--warm-highlight); }
+.chip--dark  { color: var(--text-100); background: var(--gold-primary); }
 
 /* ------------------------------------------------------------
    4. LOADER
@@ -234,11 +242,12 @@ button, input, textarea { font: inherit; border: none; outline: none; background
 
 .nav__cta {
   font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: #fff; background: var(--text-100);
+  color: var(--text-100); background: var(--gold-primary);
   padding: 9px 22px; border-radius: var(--r-full);
   transition: all var(--ease);
+  box-shadow: 0 2px 10px rgba(244,180,0,0.28);
 }
-.nav__cta:hover { background: #333; transform: translateY(-1px); }
+.nav__cta:hover { background: var(--gold-saffron); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(244,163,0,0.36); }
 
 /* Hamburger */
 .nav__hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
@@ -772,7 +781,7 @@ button, input, textarea { font: inherit; border: none; outline: none; background
 
 .blog-card__body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
 .blog-card__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.blog-card__tag  { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--highlight); background: rgba(79,100,121,.1); padding: 3px 9px; border-radius: var(--r-full); }
+.blog-card__tag  { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-100); background: var(--warm-highlight); padding: 3px 9px; border-radius: var(--r-full); }
 .blog-card__date { font-size: 11px; color: var(--text-400); }
 .blog-card__title{ font-size: 15px; font-weight: 700; color: var(--text-100); line-height: 1.4; margin-bottom: 9px; flex: 1; }
 .blog-card__exc  { font-size: 13px; color: var(--text-300); line-height: 1.65; margin-bottom: 18px; }
