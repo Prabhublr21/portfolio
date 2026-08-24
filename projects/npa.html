@@ -239,10 +239,6 @@
       </div>
     </div>
 
-    <div class="cs-mockup fu thumb--npa" role="img" aria-label="NPA — Unified risk assessment and approval tracking surfaces">
-      <!-- background image applied via .thumb--npa in project.css -->
-    </div>
-
     <div class="fu">
       <p class="cs-section-label">Design Decisions</p>
       <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">Key Solutions</h3>
@@ -321,8 +317,148 @@
   </div>
 </section>
 
-<!-- AI IN THE WORKFLOW -->
+<!-- THE SCREENS -->
 <section class="cs-section cs-section--alt">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">The Screens</p>
+      <h2 class="cs-section-title">Seven Screens, Seven Decisions</h2>
+      <p class="cs-body">Each screen below exists to settle a specific question raised earlier in this case study. They are ordered the way a compliance officer moves through the platform — from what needs attention this morning, through assessment and remediation, to the report an examiner actually reads.</p>
+      <p class="cs-body">These are dense enterprise surfaces. <strong>Select any screen to open it full-size</strong>, then scroll, pinch, or use the zoom controls to read the detail — the numbers, control IDs, and status language are the point, and they do not survive being shrunk.</p>
+
+      <div class="shots-note">
+        <span class="shots-note__icon" aria-hidden="true">ⓘ</span>
+        <span>These are <strong>representative concept screens</strong> built to show the design thinking behind this work. The production JPMorganChase interfaces are confidential and are not shown. Product name, branding, and all data are fictional.</span>
+      </div>
+    </div>
+
+    <div class="shots fu" data-shots>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/02-home-dashboard.png"
+                data-num="01" data-title="Home Dashboard"
+                data-cap="The landing surface answers “what needs my attention today” before the user has to ask. Counts, due dates, and severity all resolve without a click — the direct answer to the most frequent and most emotional question in the research.">
+          <img class="shot__img" loading="lazy" width="880" height="527"
+               src="../images/npa/02-home-dashboard-thumb.jpg"
+               alt="Compliance officer home dashboard showing open risks, overdue actions, pending reviews and upcoming deadlines, with a task list and an AI assistant panel.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">01 · Status by default</span>
+          <h3 class="shot__title">Home Dashboard</h3>
+          <p class="shot__cap">The landing surface answers “what needs my attention today” before the user has to ask. Counts, due dates, and severity all resolve without a click — the direct answer to the most frequent and most emotional question in the research.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/03-risk-taxonomy.png"
+                data-num="02" data-title="Risk Taxonomy"
+                data-cap="One firmwide taxonomy, four categories, every risk carrying an owner and a review cadence. This is the artifact that settled the product-versus-risk terminology conflict — agreeing the structure here is what unblocked screen design everywhere else.">
+          <img class="shot__img" loading="lazy" width="880" height="509"
+               src="../images/npa/03-risk-taxonomy-thumb.jpg"
+               alt="Risk taxonomy board with four columns — Credit, Operational, Compliance and Third-Party Risk — each holding risk cards with a status pill, owner and review cadence.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">02 · One shared vocabulary</span>
+          <h3 class="shot__title">Risk Taxonomy</h3>
+          <p class="shot__cap">One firmwide taxonomy, four categories, every risk carrying an owner and a review cadence. This is the artifact that settled the product-versus-risk terminology conflict — agreeing the structure here is what unblocked screen design everywhere else.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/04-new-risk.png"
+                data-num="03" data-title="New Risk Intake"
+                data-cap="The intake path. Scope, category and ownership are captured once and reused downstream, so nothing the firm already knows gets asked a second time — the “ask once, reuse everywhere” principle in its most literal form.">
+          <img class="shot__img" loading="lazy" width="880" height="490"
+               src="../images/npa/04-new-risk-thumb.jpg"
+               alt="New risk intake form capturing risk title, category, owner, review cadence and description.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">03 · Ask once, reuse everywhere</span>
+          <h3 class="shot__title">New Risk Intake</h3>
+          <p class="shot__cap">The intake path. Scope, category and ownership are captured once and reused downstream, so nothing the firm already knows gets asked a second time — the “ask once, reuse everywhere” principle in its most literal form.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/05-rcsa-workspace.png"
+                data-num="04" data-title="RCSA Workspace"
+                data-cap="The assessment itself, staged as inherent → controls → residual so the reasoning is legible rather than reduced to a final number. Each control carries its type, effectiveness and last test result, so a reviewer can see why the residual score landed where it did.">
+          <img class="shot__img" loading="lazy" width="880" height="525"
+               src="../images/npa/05-rcsa-workspace-thumb.jpg"
+               alt="RCSA workspace showing a three-step assessment, inherent risk score 16 of 25, control effectiveness 78 percent, residual score 8 of 25, and a table of controls with effectiveness ratings.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">04 · Show the reasoning, not just the score</span>
+          <h3 class="shot__title">RCSA Workspace</h3>
+          <p class="shot__cap">The assessment itself, staged as inherent → controls → residual so the reasoning is legible rather than reduced to a final number. Each control carries its type, effectiveness and last test result, so a reviewer can see why the residual score landed where it did.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/09-kaia-overlay.png"
+                data-num="05" data-title="AI Assistant Overlay"
+                data-cap="Designing the assistant, not just using one. It answers in specifics, cites the control IDs behind the answer, and routes its output to a reviewable draft instead of asserting a conclusion — because in a regulated workspace an unsourced AI answer is worse than no answer at all.">
+          <img class="shot__img" loading="lazy" width="880" height="550"
+               src="../images/npa/09-kaia-overlay-thumb.jpg"
+               alt="AI assistant side panel answering a question about risks above appetite, naming three specific risks, citing control identifiers and offering to draft a committee summary.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">05 · AI that cites its sources</span>
+          <h3 class="shot__title">AI Assistant Overlay</h3>
+          <p class="shot__cap">Designing the assistant, not just using one. It answers in specifics, cites the control IDs behind the answer, and routes its output to a reviewable draft instead of asserting a conclusion — because in a regulated workspace an unsourced AI answer is worse than no answer at all.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/14-issue-detail-hub.png"
+                data-num="06" data-title="Issue Detail Hub"
+                data-cap="Provenance made visible. The issue shows which regulatory change raised it, which policy and control it touches, who owns it and how far past due it is. The activity rail is the evidentiary record governance asked for — a live trail, not a static report.">
+          <img class="shot__img" loading="lazy" width="880" height="554"
+               src="../images/npa/14-issue-detail-hub-thumb.jpg"
+               alt="Issue detail page showing an overdue high-severity issue with description, root cause, remediation plan, linked regulatory change, policy and control records, and a dated activity timeline.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">06 · Traceability, end to end</span>
+          <h3 class="shot__title">Issue Detail Hub</h3>
+          <p class="shot__cap">Provenance made visible. The issue shows which regulatory change raised it, which policy and control it touches, who owns it and how far past due it is. The activity rail is the evidentiary record governance asked for — a live trail, not a static report.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/npa/18-examiner-report.png"
+                data-num="07" data-title="Examiner Readiness Report"
+                data-cap="The output an examiner actually reads — and the proof the flow holds together. Every figure here is drawn from records seen on the earlier screens: the same residual score from the RCSA, the same ineffective control, the same overdue issue. Nothing is re-keyed, so there is nothing to reconcile.">
+          <img class="shot__img" loading="lazy" width="880" height="571"
+               src="../images/npa/18-examiner-report-thumb.jpg"
+               alt="Examiner readiness report with an executive summary, headline metrics for risks above appetite and policy attestation rate, and sections summarising risk management, compliance testing and open issues.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">07 · The system proves itself</span>
+          <h3 class="shot__title">Examiner Readiness Report</h3>
+          <p class="shot__cap">The output an examiner actually reads — and the proof the flow holds together. Every figure here is drawn from records seen on the earlier screens: the same residual score from the RCSA, the same ineffective control, the same overdue issue. Nothing is re-keyed, so there is nothing to reconcile.</p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI IN THE WORKFLOW -->
+<section class="cs-section">
   <div class="cs-container">
     <div class="fu">
       <p class="cs-section-label">AI in the Workflow</p>
@@ -356,7 +492,7 @@
 </section>
 
 <!-- OUTCOMES -->
-<section class="cs-section">
+<section class="cs-section cs-section--alt">
   <div class="cs-container">
     <div class="fu">
       <p class="cs-section-label">Impact</p>
@@ -425,5 +561,6 @@
 
 <button class="btt" aria-label="Back to top">↑</button>
 <script src="../js/main.js"></script>
+<script src="../js/lightbox.js"></script>
 </body>
 </html>

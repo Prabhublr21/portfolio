@@ -92,7 +92,7 @@ button, input, textarea { font: inherit; border: none; outline: none; background
 
 /* Section shells */
 .sec          { padding: var(--py) 0; background: var(--bg-white); }
-.sec--gray    { padding: var(--py) 0; background: var(--bg); }
+.sec--gray    { padding: var(--py) 0; background: var(--bg-warm); }
 .sec--dark    { padding: 44px 0;      background: var(--bg-dark); }
 
 /* Section header */
