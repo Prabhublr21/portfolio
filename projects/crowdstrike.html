@@ -230,10 +230,6 @@
       </div>
     </div>
 
-    <div class="cs-mockup fu thumb--crowdstrike" role="img" aria-label="Salesforce Sales Cloud — Redesigned Deal View">
-      <!-- background image applied via .thumb--crowdstrike in project.css -->
-    </div>
-
     <div class="fu">
       <p class="cs-section-label">Design Decisions</p>
       <h3 class="cs-section-title" style="font-size:24px; margin-bottom:20px;">Key Solutions</h3>
@@ -256,8 +252,114 @@
   </div>
 </section>
 
-<!-- OUTCOMES -->
+<!-- THE SCREENS -->
 <section class="cs-section">
+  <div class="cs-container">
+    <div class="fu">
+      <p class="cs-section-label">The Screens</p>
+      <h2 class="cs-section-title">One Workspace, Five Lenses</h2>
+      <p class="cs-body">The screens below are the <strong>Front Line Manager</strong> flow — one of several role-tailored dashboards in the redesign. It is a single console shell with five tabs, and it is the clearest expression of the core idea: rather than sending a manager to six separate destinations, give them one place that changes lens without losing their filter context, their territory, or their place.</p>
+      <p class="cs-body">These are dense analytics surfaces. <strong>Select any screen to open it full-size</strong>, then scroll, pinch, or use the zoom controls — the counters, thresholds and colour coding carry the argument, and none of it survives being shrunk.</p>
+
+      <div class="shots-note">
+        <span class="shots-note__icon" aria-hidden="true">ⓘ</span>
+        <span>Prototype screens from the design file. <strong>All figures, account names and rep names shown are sample data</strong> — not real customer, pipeline or revenue information.</span>
+      </div>
+    </div>
+
+    <div class="shots fu" data-shots>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/crowdstrike/01-manage-accounts.png"
+                data-num="01" data-title="Manage Accounts"
+                data-cap="The manager's default lens. Ten counters sit above the fold, and the entire second row is exceptions — churn risk, red-status accounts, escalated cases, missed QBRs. The first question the screen answers is “where is my team off track”, not “how did we do”.">
+          <img class="shot__img" loading="lazy" width="880" height="842"
+               src="../images/crowdstrike/01-manage-accounts-thumb.jpg"
+               alt="Sales manager dashboard showing account value counters, exception counters for churn and compliance, pipeline funnel, per-rep revenue charts, and account and opportunity tables.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">01 · One filter context, five lenses</span>
+          <h3 class="shot__title">Manage Accounts</h3>
+          <p class="shot__cap">The manager's default lens. Ten counters sit above the fold, and the entire second row is exceptions — churn risk, red-status accounts, escalated cases, missed QBRs. The first question the screen answers is “where is my team off track”, not “how did we do”.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/crowdstrike/02-manage-opportunities.png"
+                data-num="02" data-title="Manage Opportunities"
+                data-cap="Same shell, different lens. The top row reports outcomes; the second row reports only exceptions — past close date, missing MEDDICC qualification, missing partner, at risk. Separating the two means a manager never has to hunt for the problems inside the scoreboard.">
+          <img class="shot__img" loading="lazy" width="880" height="731"
+               src="../images/crowdstrike/02-manage-opportunities-thumb.jpg"
+               alt="Opportunity management view with won and lost deal counters, a row of exception counters, pipeline by account bar chart, and an opportunities by stage funnel.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">02 · Exceptions get their own row</span>
+          <h3 class="shot__title">Manage Opportunities</h3>
+          <p class="shot__cap">Same shell, different lens. The top row reports outcomes; the second row reports only exceptions — past close date, missing MEDDICC qualification, missing partner, at risk. Separating the two means a manager never has to hunt for the problems inside the scoreboard.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/crowdstrike/03-forecast.png"
+                data-num="03" data-title="Forecast"
+                data-cap="Forecasting needs more control than account review does, so the filter bar expands here — stage, record type, status and a close-date range join the base filters. Quota attainment reads amber against a green forecast-to-quota, so the gap between where the team is and where it is heading resolves in one glance.">
+          <img class="shot__img" loading="lazy" width="880" height="963"
+               src="../images/crowdstrike/03-forecast-thumb.jpg"
+               alt="Forecast view with closed-won, expected-to-close, forecast and quota cards, quota attainment and forecast-to-quota percentages, team rollup gauge, forecast trend chart and pipeline coverage bars.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">03 · Controls scale with the question</span>
+          <h3 class="shot__title">Forecast</h3>
+          <p class="shot__cap">Forecasting needs more control than account review does, so the filter bar expands here — stage, record type, status and a close-date range join the base filters. Quota attainment reads amber against a green forecast-to-quota, so the gap between where the team is and where it is heading resolves in one glance.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/crowdstrike/04-whitespace.png"
+                data-num="04" data-title="Whitespace"
+                data-cap="The most unusual screen in the set. An account-by-product matrix where the answer lives in the empty cells, not the filled ones — every gap is a product an existing customer has not bought yet. Inverting the usual “show me what I have” dashboard turns the same data into a prospecting list.">
+          <img class="shot__img" loading="lazy" width="880" height="746"
+               src="../images/crowdstrike/04-whitespace-thumb.jpg"
+               alt="Whitespace analysis showing a dark matrix of accounts against product columns, with filled dots for owned products and empty dots for gaps, plus a product adoption trend chart with a projection past today.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">04 · Opportunity encoded as absence</span>
+          <h3 class="shot__title">Whitespace</h3>
+          <p class="shot__cap">The most unusual screen in the set. An account-by-product matrix where the answer lives in the empty cells, not the filled ones — every gap is a product an existing customer has not bought yet. Inverting the usual “show me what I have” dashboard turns the same data into a prospecting list.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <button type="button" class="shot__btn"
+                data-full="../images/crowdstrike/05-news.png"
+                data-num="05" data-title="News"
+                data-cap="The filter bar disappears entirely here, because nothing on this tab is filterable by territory or product. The chrome is not persistent for its own sake — each lens carries only the controls that change what it shows, which is why five tabs never start to feel like five different products.">
+          <img class="shot__img" loading="lazy" width="880" height="562"
+               src="../images/crowdstrike/05-news-thumb.jpg"
+               alt="Industry news feed inside the same console shell, showing article cards with thumbnails, source and timestamp, with the filter bar removed entirely.">
+          <span class="shot__cue" aria-hidden="true">⤢ Zoom</span>
+        </button>
+        <figcaption class="shot__meta">
+          <span class="shot__num">05 · Chrome that knows when to leave</span>
+          <h3 class="shot__title">News</h3>
+          <p class="shot__cap">The filter bar disappears entirely here, because nothing on this tab is filterable by territory or product. The chrome is not persistent for its own sake — each lens carries only the controls that change what it shows, which is why five tabs never start to feel like five different products.</p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="cs-section cs-section--alt">
   <div class="cs-container">
     <div class="fu">
       <p class="cs-section-label">Impact</p>
@@ -322,5 +424,6 @@
 
 <button class="btt" aria-label="Back to top">↑</button>
 <script src="../js/main.js"></script>
+<script src="../js/lightbox.js"></script>
 </body>
 </html>
