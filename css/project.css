@@ -739,3 +739,14 @@ body.lb-open { overflow: hidden; }
   .lb__arrow--next { right: 8px; }
   .lb__cap { font-size: 13px; padding: 12px 16px 16px; }
 }
+
+/* Very tall screens: cap the thumbnail so the grid stays scannable.
+   The lightbox still shows the full screen at native resolution. */
+.shot__img--crop {
+  max-height: 500px;
+  object-fit: cover;
+  object-position: top center;
+}
+@media (max-width: 860px) {
+  .shot__img--crop { max-height: 420px; }
+}
