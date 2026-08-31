@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ── PRIVATE PAGE ──────────────────────────────────────────
+     Unlisted: not linked from anywhere on the site, absent from
+     sitemap.xml, and disallowed in robots.txt. Password-gated via
+     js/script-gate.js.
+
+     This is NOT a security boundary. The repository serving this
+     site is public, so the page source is readable on GitHub
+     regardless of the meta tags below.
+------------------------------------------------------------- -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+
+<title>Case Study Coach</title>
+
+<meta name="theme-color" content="#F1F3EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1414" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Coach">
+
+<script src="js/script-gate.js"></script>
+
+<style>
+  /* ---------- Tokens ---------- */
+  :root{
+    --bg:#F1F3EF;
+    --surface:#FFFFFF;
+    --surface-2:#E9EBE7;
+    --surface-3:#DEE3DF;
+    --border:#D2D8D4;
+    --text:#16211E;
+    --text-muted:#4E5F5A;
+    --text-faint:#7C8B86;
+    --accent:#0E9483;
+    --accent-strong:#0B7A6C;
+    --accent-soft:rgba(14,148,131,0.10);
+    --accent-soft-2:rgba(14,148,131,0.18);
+    --amber:#A96A0A;
+    --amber-soft:rgba(169,106,10,0.10);
+    --amber-soft-2:rgba(169,106,10,0.18);
+    --shadow:rgba(20,30,28,0.08);
+    --font-display:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+    --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1414;
+      --surface:#141D1D;
+      --surface-2:#1B2626;
+      --surface-3:#22302F;
+      --border:#2B3A39;
+      --text:#EAEFEE;
+      --text-muted:#93A6A3;
+      --text-faint:#6C7D7A;
+      --accent:#35C9B0;
+      --accent-strong:#5BDFC7;
+      --accent-soft:rgba(53,201,176,0.14);
+      --accent-soft-2:rgba(53,201,176,0.24);
+      --amber:#E3A94A;
+      --amber-soft:rgba(227,169,74,0.14);
+      --amber-soft-2:rgba(227,169,74,0.24);
+      --shadow:rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1414;
+    --surface:#141D1D;
+    --surface-2:#1B2626;
+    --surface-3:#22302F;
+    --border:#2B3A39;
+    --text:#EAEFEE;
+    --text-muted:#93A6A3;
+    --text-faint:#6C7D7A;
+    --accent:#35C9B0;
+    --accent-strong:#5BDFC7;
+    --accent-soft:rgba(53,201,176,0.14);
+    --accent-soft-2:rgba(53,201,176,0.24);
+    --amber:#E3A94A;
+    --amber-soft:rgba(227,169,74,0.14);
+    --amber-soft-2:rgba(227,169,74,0.24);
+    --shadow:rgba(0,0,0,0.4);
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  html.text-lg body{font-size:18.5px;}
+  ::selection{background:var(--accent-soft-2);}
+  a{color:var(--accent-strong);}
+  button{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;}
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin:0 0 6px;
+  }
+
+  /* ---------- Shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:288px 1fr;
+    min-height:100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    background:var(--surface);
+    border-right:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    position:sticky;
+    top:0;
+  }
+  .sidebar-head{
+    padding:26px 22px 18px;
+    border-bottom:1px solid var(--border);
+  }
+  .sidebar-head h1{font-size:21px;font-weight:700;line-height:1.25;}
+  .sidebar-head .sub{
+    margin:8px 0 0;
+    font-size:13px;
+    color:var(--text-muted);
+    max-width:32ch;
+  }
+
+  .case-nav{
+    flex:1;
+    overflow-y:auto;
+    padding:10px 12px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .case-item{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    width:100%;
+    text-align:left;
+    background:transparent;
+    border:1px solid transparent;
+    border-radius:10px;
+    padding:10px 10px;
+    cursor:pointer;
+    color:var(--text);
+  }
+  .case-item:hover{background:var(--surface-2);}
+  .case-item.active{
+    background:var(--accent-soft);
+    border-color:var(--accent-soft-2);
+  }
+  .case-num{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-faint);
+    padding-top:2px;
+    flex:0 0 auto;
+    width:18px;
+  }
+  .case-item.active .case-num{color:var(--accent-strong);}
+  .case-name{font-size:14px;font-weight:600;line-height:1.3;}
+  .case-name small{display:block;font-weight:400;color:var(--text-muted);font-size:12px;margin-top:2px;}
+
+  .sidebar-foot{
+    border-top:1px solid var(--border);
+    padding:16px 18px 20px;
+  }
+  .timer{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:12px 14px;
+  }
+  .timer-label{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+  }
+  .timer-display{
+    font-family:var(--font-mono);
+    font-size:28px;
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+    margin:4px 0 10px;
+    color:var(--text);
+  }
+  .timer.in-range .timer-display{color:var(--accent-strong);}
+  .timer.over .timer-display{color:var(--amber);}
+  .timer-buttons{display:flex;gap:8px;}
+  .timer-buttons button{
+    flex:1;
+    padding:7px 0;
+    border-radius:7px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .timer-buttons button:hover{border-color:var(--accent);}
+  .timer-buttons button.primary{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#06231F;
+  }
+
+  /* ---------- Main content ---------- */
+  .content{
+    min-width:0;
+    padding:0 0 80px;
+  }
+  .content-head{
+    position:sticky;
+    top:0;
+    background:var(--bg);
+    z-index:5;
+    padding:28px 40px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .content-head-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  #caseTitle{font-size:27px;font-weight:700;max-width:46ch;}
+  .head-actions{display:flex;gap:8px;padding-top:2px;}
+  .head-actions button{
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--text-muted);
+    border-radius:8px;
+    padding:8px 12px;
+    font-size:12.5px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .head-actions button:hover{color:var(--text);border-color:var(--accent);}
+  .head-actions button svg{width:14px;height:14px;}
+
+  .tabs{
+    display:flex;
+    gap:6px;
+    margin-top:20px;
+  }
+  .tab{
+    background:transparent;
+    border:none;
+    border-bottom:2px solid transparent;
+    padding:10px 4px 12px;
+    margin-right:22px;
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--text-muted);
+    cursor:pointer;
+    display:flex;
+    align-items:baseline;
+    gap:7px;
+  }
+  .tab .tab-sub{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    font-weight:500;
+    color:var(--text-faint);
+  }
+  .tab:hover{color:var(--text);}
+  .tab.active{color:var(--accent-strong);border-bottom-color:var(--accent);}
+  .tab.active .tab-sub{color:var(--accent-strong);}
+
+  .panels{padding:30px 40px 0;max-width:820px;}
+  .panel{display:none;}
+  .panel.active{display:block;animation:fadein .15s ease;}
+  @keyframes fadein{from{opacity:0;transform:translateY(3px);}to{opacity:1;transform:none;}}
+
+  /* Intro list */
+  .intro-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .intro-list li{
+    position:relative;
+    padding-left:26px;
+    font-size:16px;
+    line-height:1.6;
+  }
+  .intro-list li::before{
+    content:"";
+    position:absolute;left:0;top:9px;
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+  }
+
+  /* Script sections */
+  .jumprail{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:2px 0 18px;
+    margin-bottom:6px;
+    border-bottom:1px dashed var(--border);
+  }
+  .jumprail a{
+    flex:0 0 auto;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.02em;
+    text-decoration:none;
+    color:var(--text-muted);
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:6px 12px;
+    white-space:nowrap;
+  }
+  .jumprail a:hover{color:var(--accent-strong);border-color:var(--accent);}
+
+  .script-section{
+    padding:26px 0;
+    border-bottom:1px solid var(--border);
+    scroll-margin-top:180px;
+  }
+  .script-section:last-child{border-bottom:none;padding-bottom:6px;}
+  .script-section h3{
+    font-size:13px;
+    font-family:var(--font-mono);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin-bottom:14px;
+  }
+  .script-section ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px;}
+  .script-section li{
+    position:relative;
+    padding-left:20px;
+    font-size:15.5px;
+    line-height:1.65;
+  }
+  .script-section li::before{
+    content:"—";
+    position:absolute;left:0;top:0;
+    color:var(--text-faint);
+  }
+
+  .show-tag{
+    display:inline-block;
+    margin-left:2px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--accent-strong);
+    background:var(--accent-soft);
+    border:1px solid var(--accent-soft-2);
+    border-radius:6px;
+    padding:2px 8px;
+    white-space:nowrap;
+  }
+
+  .callout{
+    list-style:none;
+    background:var(--amber-soft);
+    border:1px solid var(--amber-soft-2);
+    border-radius:10px;
+    padding:12px 14px;
+    margin-top:4px;
+  }
+  .callout::before{display:none;}
+  .callout .callout-tag{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:4px;
+    font-weight:700;
+  }
+
+  /* Follow-ups */
+  .followup-list{list-style:none;margin:18px 0 0;padding:0;counter-reset:fq;display:flex;flex-direction:column;gap:12px;}
+  .followup-list li{
+    counter-increment:fq;
+    position:relative;
+    padding:14px 16px 14px 46px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    font-size:15.5px;
+    line-height:1.55;
+  }
+  .followup-list li::before{
+    content:counter(fq);
+    position:absolute;left:14px;top:14px;
+    font-family:var(--font-mono);
+    font-weight:700;
+    font-size:13px;
+    color:var(--accent-strong);
+    background:var(--accent-soft);
+    width:22px;height:22px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  .panel-note{
+    margin:22px 0 0;
+    font-size:13px;
+    color:var(--text-faint);
+    font-style:italic;
+  }
+
+  /* Notes page */
+  .notes-page h2{font-size:24px;margin-bottom:6px;}
+  .notes-page p{color:var(--text-muted);font-size:15px;max-width:62ch;}
+  .notes-page ul{padding-left:20px;font-size:15px;line-height:1.7;color:var(--text);}
+  .notes-page li{margin-bottom:10px;}
+
+  /* Mobile nav toggle */
+  .menu-toggle{
+    display:none;
+    position:fixed;
+    top:16px;left:16px;
+    z-index:20;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    width:38px;height:38px;
+    align-items:center;justify-content:center;
+    cursor:pointer;
+    color:var(--text);
+  }
+  .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{
+    content:"";display:block;width:16px;height:2px;background:var(--text);
+    position:relative;
+  }
+  .menu-toggle span::before{position:absolute;top:-5px;}
+  .menu-toggle span::after{position:absolute;top:5px;}
+
+  @media (max-width:880px){
+    .shell{grid-template-columns:1fr;}
+    .menu-toggle{display:flex;}
+    .sidebar{
+      position:fixed;
+      inset:0 auto 0 0;
+      width:280px;
+      transform:translateX(-100%);
+      transition:transform .18s ease;
+      z-index:19;
+      box-shadow:0 0 40px var(--shadow);
+    }
+    .shell.nav-open .sidebar{transform:translateX(0);}
+    .shell.nav-open::after{
+      content:"";position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:18;
+    }
+    .content-head{padding:70px 20px 0;}
+    .panels{padding:24px 20px 0;}
+    #caseTitle{font-size:22px;}
+  }
+
+  /* Print */
+  @media print{
+    .menu-toggle,.sidebar,.head-actions,.tabs,.jumprail{display:none !important;}
+    .shell{display:block;}
+    .content-head{position:static;border:none;padding:0;}
+    .panels{padding:0;max-width:none;}
+    body.printing .panel{display:block !important;page-break-after:always;}
+    body.printing .panel:last-of-type{page-break-after:auto;}
+    .callout,.show-tag{border:1px solid #999 !important;background:none !important;color:#000 !important;}
+    body{background:#fff;color:#000;}
+  }
+</style>
+
+<style>
+  /* ---------- Standalone-page additions ----------
+     The source was authored as an embedded artifact, which supplied
+     its own viewport and page chrome. These rules cover what that
+     wrapper used to provide, plus small-screen fixes for phone use. */
+
+  html { -webkit-tap-highlight-color: rgba(14,148,131,0.15); }
+  body { min-height: 100dvh; }
+
+  /* Respect notched phones in landscape and around the fixed toggle */
+  @supports (padding: max(0px)) {
+    .content-head { padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right)); }
+    .panels       { padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right)); }
+    .menu-toggle  { left: max(16px, env(safe-area-inset-left)); }
+    .sidebar      { padding-left: env(safe-area-inset-left); }
+  }
+
+  @media (max-width: 880px) {
+    /* The three tabs overflow a phone viewport — let them scroll
+       instead of wrapping into an unreadable stack. */
+    .tabs {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin-top: 14px;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex: 0 0 auto; margin-right: 18px; }
+
+    /* Header actions sit under the title rather than fighting it */
+    .content-head-top { gap: 12px; }
+    .head-actions { padding-top: 0; }
+    .head-actions button { padding: 9px 12px; }
+
+    /* Comfortable touch targets */
+    .case-item { padding: 13px 10px; }
+    .timer-buttons button { padding: 11px 0; font-size: 13.5px; }
+
+    .panels { padding-top: 20px; }
+    .script-section { padding: 22px 0; scroll-margin-top: 150px; }
+    .followup-list li { font-size: 15px; }
+  }
+
+  @media (max-width: 420px) {
+    #caseTitle { font-size: 20px; }
+    .content-head { padding-top: 64px; }
+    .sidebar { width: min(86vw, 300px); }
+    .script-section li, .intro-list li { font-size: 15px; }
+  }
+
+  /* The gate paints its own ground; keep the app hidden until it clears */
+  #sg { -webkit-font-smoothing: antialiased; }
+</style>
+
+</head>
+<body>
+
+<div class="shell" id="shell">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle case list"><span></span></button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+      <p class="eyebrow">Interview Coach</p>
+      <h1>Case Study Scripts</h1>
+      <p class="sub">Eight portfolio projects, ready to rehearse offline.</p>
+    </div>
+
+    <nav class="case-nav" id="caseNav">
+      <button class="case-item active" data-case="npa"><span class="case-num">01</span><span class="case-name">JPMorganChase<small>New Product Assessment</small></span></button>
+      <button class="case-item" data-case="venturebacked"><span class="case-num">02</span><span class="case-name">VentureBacked<small>Founder ↔ Investor Platform</small></span></button>
+      <button class="case-item" data-case="crowdstrike"><span class="case-num">03</span><span class="case-name">CrowdStrike<small>Salesforce Sales Cloud</small></span></button>
+      <button class="case-item" data-case="autodesk"><span class="case-num">04</span><span class="case-name">Autodesk<small>Agent Experience</small></span></button>
+      <button class="case-item" data-case="pruxpress"><span class="case-num">05</span><span class="case-name">PruXpress<small>Advisor Portal Redesign</small></span></button>
+      <button class="case-item" data-case="lifely"><span class="case-num">06</span><span class="case-name">Lifely<small>Term Life Insurance UX</small></span></button>
+      <button class="case-item" data-case="cvs"><span class="case-num">07</span><span class="case-name">CVS Health<small>Claims Portal</small></span></button>
+      <button class="case-item" data-case="walmart"><span class="case-num">08</span><span class="case-name">Walmart<small>Pulse Inventory App</small></span></button>
+      <button class="case-item" data-case="notes"><span class="case-num">·</span><span class="case-name">How to Use This</span></button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="timer" id="timer">
+        <div class="timer-label" id="timerTarget">Target · 60–90 sec</div>
+        <div class="timer-display" id="timerDisplay">00:00</div>
+        <div class="timer-buttons">
+          <button class="primary" id="timerStart">Start</button>
+          <button id="timerReset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="content-head">
+      <div class="content-head-top">
+        <div>
+          <p class="eyebrow" id="caseEyebrow">Case Study 01</p>
+          <h2 id="caseTitle">JPMorganChase — New Product Assessment</h2>
+        </div>
+        <div class="head-actions">
+          <button id="textSizeBtn" title="Larger text">A+</button>
+          <button id="copyBtn" title="Copy current section">Copy</button>
+          <button id="printBtn" title="Print this case study">Print</button>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" id="tabs">
+        <button class="tab active" data-panel="intro" role="tab" aria-selected="true">Intro <span class="tab-sub">60–90s</span></button>
+        <button class="tab" data-panel="script" role="tab" aria-selected="false">Full Script <span class="tab-sub">5–7 min</span></button>
+        <button class="tab" data-panel="followups" role="tab" aria-selected="false">Follow-ups <span class="tab-sub">5 Qs</span></button>
+      </div>
+    </header>
+
+    <div class="panels" id="panels">
+
+<!-- ============ 01 NPA ============ -->
+<article class="panel active" data-case="npa" data-panel="intro">
+  <ul class="intro-list">
+    <li>I want to walk you through a platform I built at JPMorganChase called NPA — New Product Assessment. It consolidates two legacy governance processes into one system for assessing risk and approving new products or product changes firmwide.</li>
+    <li>Four groups use it: the people initiating something new, the reviewers, the risk subject matter experts, and governance leads who need a clean audit trail.</li>
+    <li>Before this, every line of business had its own version of the process, so initiators were answering the same risk questions in three different systems, and nobody had a single view of what was in flight or where it was stuck.</li>
+    <li>That's not just an efficiency problem at a bank that size — it slows time to market and creates real governance gaps, the kind that show up in an exam.</li>
+    <li>I owned this end to end — research, information architecture, wireframes, high-fidelity design, usability testing — and I stayed through implementation to check what shipped against what I specified.</li>
+    <li>The insight that reframed the whole project was realizing this wasn't really a systems-consolidation problem, it was a "get four lines of business to agree on one vocabulary" problem.</li>
+    <li>After launch, we saw about a 40% drop in cycle time and a 55% drop in redundant data entry, and I can walk through exactly how we got there.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="npa" data-panel="script">
+  <nav class="jumprail">
+    <a href="#npa-opening">Opening</a><a href="#npa-problem">Problem</a><a href="#npa-role">My Role</a><a href="#npa-discovery">Discovery</a><a href="#npa-turn">Turning Point</a><a href="#npa-design">Decisions</a><a href="#npa-collab">Collaboration</a><a href="#npa-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="npa-opening"><h3>Opening</h3><ul>
+    <li>I want to walk you through a project I did at JPMorganChase called NPA, short for New Product Assessment.</li>
+    <li>It's a firmwide platform that consolidates two legacy processes — NBIA and PSCM — into one system for assessing risk and approving new products or product changes.</li>
+    <li>Four groups use it day to day: the people initiating something new, the reviewers, the risk SMEs who evaluate specific risk dimensions, and governance leads who need a clean audit trail for exams.</li>
+    <li>This matters because at a bank that size, a slow or inconsistent approval process doesn't just frustrate people internally — it shows up as slower time to market and as governance gaps that regulators care about.</li>
+  </ul></section>
+  <section class="script-section" id="npa-problem"><h3>The Problem</h3><ul>
+    <li>Every line of business had built its own version of this process over time, so there was no shared data layer and no consistent workflow.</li>
+    <li>An initiator could answer the same five risk questions in three different systems, and a reviewer would see that same information formatted three different ways.</li>
+    <li>Nobody — not initiators, not reviewers, not governance — had a single view of what was in flight, where it was stuck, or what risk it carried.</li>
+    <li>And underneath all of that, different lines of business were using the same words to mean different things, which is a quiet but serious problem in a regulated environment.</li>
+  </ul></section>
+  <section class="script-section" id="npa-role"><h3>My Responsibility</h3><ul>
+    <li>I was the senior UX designer on this, and I owned it end to end — discovery, information architecture, wireframes, high-fidelity design, usability testing — and I stayed on through the build to review what actually shipped against the spec.</li>
+    <li>I worked directly with product and with risk and compliance stakeholders across multiple lines of business, and I embedded risk and compliance partners into design critiques so we weren't validating decisions after the fact.</li>
+    <li>Nobody else took over a phase of this from me — that continuity mattered, because it meant nothing got lost in a hand-off.</li>
+  </ul></section>
+  <section class="script-section" id="npa-discovery"><h3>Discovery</h3><ul>
+    <li>I needed to understand how four very different roles experienced the same process, so I ran about twenty moderated interviews with initiators, reviewers, risk SMEs, and governance leads across lines of business.</li>
+    <li>I mapped current-state and future-state journeys for both NBIA and PSCM to see every handoff and every point where something got duplicated or delayed.</li>
+    <li>I also did a heuristic audit of the legacy tools, which is where a lot of the duplicated fields and conflicting terminology became visible on paper, not just anecdotally.</li>
+    <li>And I ran workshops with risk and compliance to get everyone aligned on one firmwide risk taxonomy before I touched a single screen.</li>
+    <li>What came out of that was four things people kept saying, almost verbatim: "I answer the same five questions in three systems." "I don't know where my submission is or who's blocking it." "Risk reviewers and product owners speak different languages." And, "governance needs an audit trail, not a static report."</li>
+  </ul></section>
+  <section class="script-section" id="npa-turn"><h3>The Turning Point</h3><ul>
+    <li>The insight that reframed the whole project was realizing consolidation is a UX problem before it's a technology problem.</li>
+    <li>Replacing the systems was the easy part on paper — the hard part was getting four lines of business to agree on one vocabulary, one risk taxonomy, and one shared idea of what "approved" actually means.</li>
+    <li>Once I saw that, I stopped thinking about this as "redesign four tools into one" and started thinking about it as "design one shared model that can flex by role."</li>
+  </ul></section>
+  <section class="script-section" id="npa-design"><h3>Design Decisions</h3><ul>
+    <li>The first principle I worked from was ask once, reuse everywhere — if the firm already has an answer to a question somewhere, the initiator shouldn't have to type it again. So the intake questionnaire auto-scopes to NBIA or PSCM based on early answers and pre-fills from data the firm already holds. <span class="show-tag">Show: New Risk Intake Form</span></li>
+    <li>Second, I made status visible by default instead of something you had to go dig for. Every role — initiator, reviewer, governance — gets a tailored view that answers "what's in flight, where is it, who's it waiting on," without anyone having to ask. <span class="show-tag">Show: Home Dashboard</span></li>
+    <li>Third, and this was the trickiest one, I standardized risk without flattening it. There's one taxonomy underneath, enforced at the system level, but the presentation adapts — initiators see plain-language prompts, risk SMEs see the underlying rubric and the evidence trail behind it. <span class="show-tag">Show: Risk Taxonomy Board</span></li>
+    <li>I also designed an examiner readiness report that pulls straight from the same underlying data as the risk workspace, so nothing gets re-keyed for reporting — which matters a lot when you're trying to close a reconciliation gap. <span class="show-tag">Show: Examiner Readiness Report</span></li>
+  </ul></section>
+  <section class="script-section" id="npa-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>I ran three rounds of moderated usability testing on mid-fidelity prototypes with actual initiators and reviewers before engineering committed to the build.</li>
+    <li>Risk and compliance weren't just reviewing at the end — they were in the design critiques with me, so when something didn't hold up under a governance lens, I heard about it early enough to change it cheaply.</li>
+    <li>I used AI tools deliberately, but with limits. Claude helped me get a first pass at themes across twenty-plus interview transcripts, and Figma AI helped me explore layout variations faster on the highest-branching screens. But anything touching accessibility decisions or the risk-taxonomy language, I kept that off AI entirely, because "the tool suggested it" doesn't hold up under compliance scrutiny.</li>
+  </ul></section>
+  <section class="script-section" id="npa-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>After launch, we saw roughly a 40% reduction in overall cycle time and about a 55% drop in redundant data entry, based on usage data on the new submission workflow.</li>
+    <li>Status-check support requests dropped noticeably too, which tracked with what we heard in research — "where's my submission" was an emotionally loud question, even if it wasn't the flashiest problem to solve.</li>
+    <li>If I look back at what actually made this work, it's that staying on the project end to end kept the research alive all the way to what shipped — nothing got diluted in a hand-off.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>I don't have specific figures on accessibility testing or the exact size and makeup of the broader team from the write-up — worth having an answer ready if that comes up.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="npa" data-panel="followups">
+  <ol class="followup-list">
+    <li>How did you get four different lines of business to agree on a single risk taxonomy when they'd each built their own process over years?</li>
+    <li>Walk me through a specific moment where risk or compliance pushed back on a design decision — what happened?</li>
+    <li>You mentioned using AI for research synthesis and prototyping — where exactly did you draw the line on where it didn't belong?</li>
+    <li>How did you validate that the role-aware presentation of the risk taxonomy actually worked for both a plain-language initiator and a risk SME looking at the same underlying data?</li>
+    <li>What would you have done differently with another six months on this?</li>
+  </ol>
+</article>
+
+<!-- ============ 02 VentureBacked ============ -->
+<article class="panel" data-case="venturebacked" data-panel="intro">
+  <ul class="intro-list">
+    <li>This one's called VentureBacked — a community platform connecting founders and investors, so think less social network, more trust infrastructure for early-stage fundraising.</li>
+    <li>The users are seed-stage founders trying to raise, and on the other side, angel investors and emerging fund GPs trying to source deals they can actually trust.</li>
+    <li>The problem wasn't a lack of intros, it was too many low-quality ones — founders were sending decks into inboxes they hoped were real, and investors were drowning in deal flow they had no way to evaluate quickly.</li>
+    <li>I was the lead UX and product designer on this for about six months, owning it from discovery research through the full design system.</li>
+    <li>The turning point in research was hearing almost the same line from both sides: "I don't need more intros, I need the right intros." That shifted the whole direction toward signal over volume.</li>
+    <li>We rebuilt onboarding, redesigned profiles around trust signals, and built a full design system so engineering could ship without me in every review.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="venturebacked" data-panel="script">
+  <nav class="jumprail">
+    <a href="#vb-opening">Opening</a><a href="#vb-problem">Problem</a><a href="#vb-role">My Role</a><a href="#vb-discovery">Discovery</a><a href="#vb-turn">Turning Point</a><a href="#vb-design">Decisions</a><a href="#vb-collab">Collaboration</a><a href="#vb-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="vb-opening"><h3>Opening</h3><ul>
+    <li>VentureBacked is a community platform built to connect founders raising early-stage capital with angel investors and emerging fund GPs looking to source deals.</li>
+    <li>It's a two-sided marketplace, which means the product only works if both sides trust it enough to actually use it.</li>
+    <li>Founders were already spraying decks into inboxes they hoped were real, and investors were already drowning in deal flow with no reliable way to sort signal from noise. The existing options — LinkedIn, AngelList, cold intros on Twitter — were adding noise, not solving that.</li>
+  </ul></section>
+  <section class="script-section" id="vb-problem"><h3>The Problem</h3><ul>
+    <li>There were really four things working against the product before I got involved: matching that nobody trusted, profile creation that caused people to drop off mid-signup on both sides, a visual identity that didn't read as credible in a category where credibility is the whole product, and no design system, which was slowing engineering down on every new feature.</li>
+    <li>Trust and speed were fighting each other — the more information you asked people for up front to build trust, the more of them you lost before they ever saw value.</li>
+  </ul></section>
+  <section class="script-section" id="vb-role"><h3>My Responsibility</h3><ul>
+    <li>I was the lead UX and product designer for about six months, and I owned this end to end — discovery research, interaction and visual design, and I built the design system from scratch, foundations through documentation.</li>
+    <li>I ran the research program myself, and I worked with engineering on a weekly cadence so the design system wasn't just a deliverable I handed off — it was something we built together as we went.</li>
+  </ul></section>
+  <section class="script-section" id="vb-discovery"><h3>Discovery</h3><ul>
+    <li>I needed to understand what "trustworthy" actually meant to two very different audiences, so I ran eighteen moderated interviews with founders, angel investors, and emerging fund GPs.</li>
+    <li>I mapped separate journeys for founders raising and investors sourcing, because those are genuinely different mental models even though they're using the same platform.</li>
+    <li>I did a competitive teardown of nine adjacent products — LinkedIn, AngelList, Signal, Crunchbase — to see where the category's existing conventions were actually working against users.</li>
+    <li>Then I validated what I was hearing qualitatively with a broader survey, and used Dovetail to tag everything so the whole team could search the research, not just me.</li>
+    <li>Four things came out clearly: "I don't need more intros, I need the right intros." "Tell me in ten seconds if this person is worth my time." "If I can't sign up in three minutes, I'm out." And, "it has to look like it belongs in this category" — meaning visual polish wasn't decoration, it was doing real credibility work.</li>
+  </ul></section>
+  <section class="script-section" id="vb-turn"><h3>The Turning Point</h3><ul>
+    <li>The line that reframed the project for me was "I don't need more intros, I need the right intros" — because it told me the bottleneck wasn't the volume of connections, it was confidence in the ones people already had.</li>
+    <li>That shifted my whole design direction away from "help people find more matches" and toward "help people evaluate a match in seconds, and build trust into the interface itself instead of bolting it on later."</li>
+  </ul></section>
+  <section class="script-section" id="vb-design"><h3>Design Decisions</h3><ul>
+    <li>I rebuilt profiles around a glanceable header — stage, thesis, check size, traction, last activity — all above the fold, so someone could size up a match in seconds instead of reading a full bio. <span class="show-tag">Show: Founder Profile</span></li>
+    <li>I cut onboarding down to three lightweight steps and pushed the heavier asks — full deck, detailed thesis, traction numbers — to later moments where they'd actually help the user, instead of front-loading everything and losing people before they saw value. <span class="show-tag">Show: Choose Your Role</span></li>
+    <li>The decision I'd call out as the trickiest one: I treated trust as a UI primitive, not a feature. Verification badges, source-of-data labels, "last verified" timestamps — those show up as first-class components everywhere someone evaluates another member, not as an add-on screen. <span class="show-tag">Show: Discovery Tags</span></li>
+    <li>Because engineering velocity was one of the original problems, I built the design system in layers — foundations as Figma variables mirrored in code, a full component library with every state covered, patterns for the recurring compositions, and documentation with the reasoning behind each decision, not just the "how."</li>
+  </ul></section>
+  <section class="script-section" id="vb-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>I ran weekly design critiques with engineering before anything went to build, specifically so the design system held up in practice, not just in Figma.</li>
+    <li>I brought concepts back to founders and investors from the research pool for review, and ran three rounds of usability testing plus unmoderated Maze studies to catch comprehension issues before investing in high fidelity.</li>
+    <li>When there was pressure to add more fields or features, I used the three principles from research — signal over noise, trust by default, respect people's time — as the filter for what got in and what didn't.</li>
+  </ul></section>
+  <section class="script-section" id="vb-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>What we ended up with was a product that reads as one coherent system end to end, a genuinely lighter onboarding flow, and a design system that let engineering ship new features against a documented library instead of starting from scratch every time.</li>
+    <li>The thing I'd point to as the real win is that the research protected the product from becoming a clone of what everyone else in the category was already doing — "signal over volume" wasn't something a competitive scan alone would have surfaced.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>I don't have hard adoption or conversion numbers from this one to quote directly — if you want a number here, let's agree on what to say before you use this in an interview.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="venturebacked" data-panel="followups">
+  <ol class="followup-list">
+    <li>You mentioned trust as a "UI primitive" — can you get specific about what that looked like on a single screen?</li>
+    <li>How did you decide what to defer in onboarding versus what had to be collected up front?</li>
+    <li>Walk me through how you built the design system alongside a live project instead of stopping to build it first.</li>
+    <li>What pushback did you get on cutting the onboarding flow down, and how did you handle it?</li>
+    <li>Without hard metrics tracked on this one, how do you know it actually worked?</li>
+  </ol>
+</article>
+
+<!-- ============ 03 CrowdStrike ============ -->
+<article class="panel" data-case="crowdstrike" data-panel="intro">
+  <ul class="intro-list">
+    <li>This project was a Salesforce Sales Cloud implementation for CrowdStrike, a cybersecurity company. I want to be clear about the shape of it — this wasn't design work on CrowdStrike's own security product, it was rebuilding their sales team's experience inside Salesforce.</li>
+    <li>CrowdStrike was scaling toward five billion in annual recurring revenue, and their Salesforce setup hadn't kept pace — reps were bouncing across six or more tabs just to get through one customer interaction.</li>
+    <li>I was the lead UX consultant, embedded with the Salesforce design team, running research and design through the full build and testing cycle.</li>
+    <li>The insight that reframed things: reps trusted their own spreadsheets more than Salesforce, and that wasn't laziness — it was a rational response to a system that felt unreliable.</li>
+    <li>We consolidated the fragmented workflow into one deal workspace, added AI-driven next-best-action guidance, and rebuilt the whole thing to meet WCAG 2.1 AA.</li>
+    <li>Sixty days after launch, adoption was up 34%, core task time was down 41%, and CRM data quality was up 28%.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="crowdstrike" data-panel="script">
+  <nav class="jumprail">
+    <a href="#cs-opening">Opening</a><a href="#cs-problem">Problem</a><a href="#cs-role">My Role</a><a href="#cs-discovery">Discovery</a><a href="#cs-turn">Turning Point</a><a href="#cs-design">Decisions</a><a href="#cs-collab">Collaboration</a><a href="#cs-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="cs-opening"><h3>Opening</h3><ul>
+    <li>I worked on a Salesforce Sales Cloud implementation for CrowdStrike, the cybersecurity company — I want to be precise about that, because it's easy to hear "CrowdStrike" and assume I was designing their security product. I wasn't. I was rebuilding how their own sales team used Salesforce.</li>
+    <li>CrowdStrike was pushing to scale sales to five billion in annual recurring revenue, but their Salesforce experience hadn't evolved to match that ambition.</li>
+    <li>The people using it every day were sales reps across enterprise, mid-market, and SMB deals, sales managers, and SDRs.</li>
+  </ul></section>
+  <section class="script-section" id="cs-problem"><h3>The Problem</h3><ul>
+    <li>Reps were toggling across six or more tabs to get through a single customer interaction, and that context-switching was costing an estimated two to three hours a day per rep.</li>
+    <li>A lot of critical deal information was living in spreadsheets and email instead of Salesforce, which meant pipeline data wasn't reliable and forecasting suffered because of it.</li>
+    <li>The platform wasn't using the AI capabilities that were already available to surface next-best actions or flag at-risk deals — so reps got summaries, not guidance.</li>
+    <li>On top of that, a chunk of the screens failed WCAG 2.1 color contrast requirements and had inconsistent keyboard navigation, so it wasn't accessible to everyone using it.</li>
+  </ul></section>
+  <section class="script-section" id="cs-role"><h3>My Responsibility</h3><ul>
+    <li>I was the lead UX consultant on this, embedded with the Salesforce design team.</li>
+    <li>I led the research myself — the interviews, the shadowing, the heuristic audit — and then facilitated design sprints and built the high-fidelity Figma prototypes that went through three rounds of testing before handoff.</li>
+  </ul></section>
+  <section class="script-section" id="cs-discovery"><h3>Discovery</h3><ul>
+    <li>I ran eighteen moderated interviews with reps, managers, and SDRs across different deal stages, and shadowed eight reps directly during live customer calls and pipeline reviews, because I wanted to see the tab-switching problem happen, not just hear about it.</li>
+    <li>I built future-state journey maps for five distinct personas, and ran a heuristic audit against Nielsen's ten heuristics across more than forty screens — that alone surfaced eighty-seven distinct pain points.</li>
+    <li>I also pulled Salesforce usage telemetry to see where people were actually dropping off and what features were getting used versus ignored.</li>
+    <li>Three things people said stuck with me: "I have the data, I just can't find it fast enough." "I trust my spreadsheet more than Salesforce." And, "I'd love AI that helps me prioritize, not just summarize."</li>
+  </ul></section>
+  <section class="script-section" id="cs-turn"><h3>The Turning Point</h3><ul>
+    <li>The turning point was realizing the spreadsheet behavior wasn't a training problem or a discipline problem — it was a rational response to a system reps didn't trust.</li>
+    <li>That reframed the whole project. It stopped being "add more capabilities to Salesforce" and became "make Salesforce faster and more trustworthy than the workaround people had already built for themselves."</li>
+  </ul></section>
+  <section class="script-section" id="cs-design"><h3>Design Decisions</h3><ul>
+    <li>The first move was consolidating that six-tab workflow into a single deal workspace with contextual panels, so reps could see everything relevant to a deal in one place instead of hunting across tabs.</li>
+    <li>Second, I surfaced AI-driven next-best-action recommendations — follow-up timing, deal health scores, at-risk flags — directly inside that same deal view, because research told me reps wanted something that told them what to do next, not something that summarized what they already knew.</li>
+    <li>Third, I rebuilt the component library to be accessible from the ground up — proper color contrast, full keyboard navigation, ARIA labeling, and focus management throughout. That wasn't a separate accessibility pass at the end, it was baked into the same component work everything else was built on.</li>
+  </ul></section>
+  <section class="script-section" id="cs-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>I ran baseline usability testing on the current-state experience first, so I had real performance numbers to compare against, not just impressions.</li>
+    <li>Then I went through three rounds of moderated testing on the high-fidelity prototypes, iterating with the Salesforce design team between each round before we handed anything to engineering.</li>
+    <li>The AI integration only earned its place in the design when it removed a step reps were already doing manually — the ones that added a new interaction for reps to learn didn't make the cut.</li>
+  </ul></section>
+  <section class="script-section" id="cs-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>In the first sixty days after launch, platform adoption among reps was up 34%, average time on core sales tasks — pipeline updates, deal reviews, follow-up logging — was down 41%, and CRM data quality scores were up 28% because reps were entering information directly instead of routing around the system.</li>
+    <li>Looking back, the real lesson was that reps didn't need more capability, they needed faster paths to the capability they already had — that's a different design problem than the one it looks like on the surface.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>The write-up doesn't spell out exactly how design sign-off worked between CrowdStrike stakeholders and the Salesforce team internally — worth having a clean answer ready if that comes up.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="crowdstrike" data-panel="followups">
+  <ol class="followup-list">
+    <li>How did you decide what to consolidate into the unified deal workspace versus what to leave as a separate view?</li>
+    <li>You said the AI only made the cut when it removed a manual step — can you give a specific example of an AI feature you didn't ship, and why?</li>
+    <li>Walk me through the accessibility rebuild — how did you validate the fixes actually worked for someone using a screen reader or keyboard-only navigation?</li>
+    <li>What was harder to change, the interface or the reps' trust in the platform?</li>
+    <li>How did you work with the Salesforce design team versus CrowdStrike's own stakeholders — who had final say on what shipped?</li>
+  </ol>
+</article>
+
+<!-- ============ 04 Autodesk ============ -->
+<article class="panel" data-case="autodesk" data-panel="intro">
+  <ul class="intro-list">
+    <li>This is a project I did with Autodesk, redesigning the platform their global customer support agents use every day — not a customer-facing product, an internal agent tool.</li>
+    <li>Agents were working across the US, India, Ireland, and the Philippines, toggling between seven or more applications just to handle one customer interaction.</li>
+    <li>I led the research and design work as lead UX consultant, embedded with Autodesk's team alongside product managers, engineers, and the agents themselves.</li>
+    <li>The turning point was finding out veteran agents had built their own workaround systems — sticky notes, browser bookmarks, copy-paste scripts — just to compensate for what the official tools didn't give them. That "shadow infrastructure" became the blueprint for what to design.</li>
+    <li>We built a unified customer view, integrated knowledge search, guided resolution flows for the highest-volume issues, and real-time sentiment indicators.</li>
+    <li>Within the first quarter, average handle time was down 38%, first-contact resolution was up 22%, and new-agent ramp time dropped from about eight weeks to three.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="autodesk" data-panel="script">
+  <nav class="jumprail">
+    <a href="#ad-opening">Opening</a><a href="#ad-problem">Problem</a><a href="#ad-role">My Role</a><a href="#ad-discovery">Discovery</a><a href="#ad-turn">Turning Point</a><a href="#ad-design">Decisions</a><a href="#ad-collab">Collaboration</a><a href="#ad-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="ad-opening"><h3>Opening</h3><ul>
+    <li>I worked with Autodesk to redesign the platform their customer support agents use — an internal tool, not something end customers ever see, but it directly shapes the support experience customers get.</li>
+    <li>The agents were spread across the US, India, Ireland, and the Philippines, working technical support, licensing, billing, and enterprise account management.</li>
+    <li>Autodesk had accumulated a collection of aging, siloed systems through years of acquisitions and incremental additions, and agents were toggling between seven or more applications per customer interaction, manually copying information between them.</li>
+  </ul></section>
+  <section class="script-section" id="ad-problem"><h3>The Problem</h3><ul>
+    <li>Beyond the raw number of tools, there was no unified search across support documentation, so knowledge access itself was broken.</li>
+    <li>Agents had no visibility into a customer's product history or account health at the start of an interaction — they were starting cold every time.</li>
+    <li>And there was no real feedback loop for performance beyond a CSAT score at the end — nothing in-call that told an agent, in the moment, how they were doing or what a strong agent would do differently.</li>
+  </ul></section>
+  <section class="script-section" id="ad-role"><h3>My Responsibility</h3><ul>
+    <li>I was the lead UX consultant on this, and I led the research program design and execution, facilitated synthesis workshops with the design and product teams, and ran weekly co-creation workshops directly with agents.</li>
+    <li>I worked closely with Autodesk product managers and engineers throughout, and I made a point of including agents in the ideation itself, not just bringing them in at the end to validate something I'd already built.</li>
+  </ul></section>
+  <section class="script-section" id="ad-discovery"><h3>Discovery</h3><ul>
+    <li>I ran shadow sessions in person across all four locations, watching real customer interactions as they happened, because a support conversation in the India center looked genuinely different from one in the US.</li>
+    <li>I ran twenty-four contextual interviews with agents across tiers, tenure, and specialization, and built a full service blueprint of the agent journey from case intake to resolution across phone, chat, and email.</li>
+    <li>In synthesis, I clustered over four hundred data points from that research into themes with the team, and layered in six months of operational metrics — handle time, first-contact resolution, CSAT by tier — to ground everything in more than just what people said.</li>
+    <li>What came out of that was something I hadn't expected walking in: veteran agents had built elaborate personal systems — physical notes, bookmarks, copy-paste scripts — to compensate for what the tools didn't give them, and none of that was visible to management or something a new agent could inherit.</li>
+  </ul></section>
+  <section class="script-section" id="ad-turn"><h3>The Turning Point</h3><ul>
+    <li>The insight that shaped everything downstream was that shadow infrastructure is a signal, not a problem — when people build their own workarounds, they're showing you exactly what the official system is failing to provide.</li>
+    <li>That reframed the opportunity: if the platform could codify what the best agents were already doing into the interface itself — smart defaults, contextual guidance, a unified customer history — it could close a meaningful chunk of the experience gap between a new hire and a veteran, instead of treating that gap as purely a training problem.</li>
+  </ul></section>
+  <section class="script-section" id="ad-design"><h3>Design Decisions</h3><ul>
+    <li>The first piece was a single customer view — licenses, case history, account health, recent interactions, account tier — that loaded automatically with zero manual lookup, replacing the cold start every agent used to face.</li>
+    <li>Second, I built unified search across support docs, internal wikis, and escalation playbooks that surfaced content contextually based on the case category and customer profile, instead of making agents hunt across systems.</li>
+    <li>Third, I designed guided resolution flows for the twenty highest-volume issue types, essentially encoding what veteran agents already knew into a repeatable path — the direct answer to the shadow-infrastructure insight.</li>
+    <li>And I added real-time sentiment indicators in the case view — escalation risk, frustration cues — so agents got a feedback signal in the moment instead of only after the call, in a CSAT score.</li>
+  </ul></section>
+  <section class="script-section" id="ad-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>Co-creation was central here — I ran weekly workshops with product managers, engineers, and agents together, and having agents in the room for ideation, not just testing, produced designs that matched how people actually thought about their work, not how a stakeholder assumed they thought about it.</li>
+    <li>I validated in stages — low-fidelity wireframes with agents first to check direction, then three rounds of interactive Figma prototypes tested with agents across different tiers and locations before anything went to engineering.</li>
+    <li>The multi-location piece wasn't optional for me — the pain points in India looked meaningfully different from the US, and if I'd only tested with one region, I'd have shipped something that didn't actually work globally.</li>
+  </ul></section>
+  <section class="script-section" id="ad-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>In the first quarter after rollout, average handle time was down 38%, first-contact resolution was up 22%, and new-agent ramp time to proficiency dropped from about eight weeks to roughly three.</li>
+    <li>The biggest thing I took from this project is that codifying expertise is a design problem as much as a training problem — you can put a veteran's judgment into the interface itself, and that changes outcomes faster than a training program alone would.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>The write-up doesn't detail specific trade-offs I weighed on individual features, like alternatives considered for the sentiment indicators — worth prepping a concrete example if asked.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="autodesk" data-panel="followups">
+  <ol class="followup-list">
+    <li>How did you turn "shadow infrastructure" from an observation into an actual design decision?</li>
+    <li>What did the guided resolution flows look like in practice — how much did you constrain agent judgment versus leave room for it?</li>
+    <li>You mentioned regional differences in pain points — can you give a specific example of something that worked in the US but had to change for India or the Philippines?</li>
+    <li>How did you balance codifying veteran expertise into the tool without making it feel like a rigid script agents had to follow?</li>
+    <li>What did you learn from bringing agents into ideation that you wouldn't have gotten from only testing with them?</li>
+  </ol>
+</article>
+
+<!-- ============ 05 PruXpress ============ -->
+<article class="panel" data-case="pruxpress" data-panel="intro">
+  <ul class="intro-list">
+    <li>I redesigned the information architecture and navigation for PruXpress, Prudential's advisor portal used by thousands of licensed financial advisors to get product info, compliance documents, and sales materials.</li>
+    <li>The portal had grown organically over years with no coherent IA strategy, so it was structured around Prudential's internal org chart instead of how advisors actually think about their work.</li>
+    <li>I was the UX designer and researcher on this, running the discovery, the card sorting and tree testing, and the redesign itself, working through Cognizant alongside Prudential stakeholders.</li>
+    <li>The turning point was card sorting — it showed advisors organize everything by task, not by product line, and that one finding invalidated the entire existing structure.</li>
+    <li>I rebuilt the navigation around tasks like "prepare for a client meeting" and "get compliant," added predictive search with content freshness indicators, and built a real onboarding path for new advisors.</li>
+    <li>Task success on content-findability tasks went up 71%, time on task dropped 52%, and support call volume dropped 33% within ninety days.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="pruxpress" data-panel="script">
+  <nav class="jumprail">
+    <a href="#px-opening">Opening</a><a href="#px-problem">Problem</a><a href="#px-role">My Role</a><a href="#px-discovery">Discovery</a><a href="#px-turn">Turning Point</a><a href="#px-design">Decisions</a><a href="#px-collab">Collaboration</a><a href="#px-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="px-opening"><h3>Opening</h3><ul>
+    <li>I worked on PruXpress, Prudential's advisor portal — the tool thousands of licensed financial advisors use every day to get product information, compliance documents, sales materials, and client management tools.</li>
+    <li>This is a regulated financial services environment, so when advisors can't find the right document quickly, that's not just an annoyance, it's a compliance and revenue risk.</li>
+    <li>The portal had grown organically over years without a coherent information architecture strategy, and by the time I got involved, that had become the core problem underneath almost everything else advisors complained about.</li>
+  </ul></section>
+  <section class="script-section" id="px-problem"><h3>The Problem</h3><ul>
+    <li>Locating a specific product resource, compliance document, or training material took excessive time and often just failed outright.</li>
+    <li>Search returned broad, unranked results with no contextual filtering, so advisors were scanning and giving up rather than finding what they needed.</li>
+    <li>The menu structure reflected Prudential's internal organizational hierarchy, not how advisors actually thought about their own work.</li>
+    <li>And outdated content sat right alongside current content with no way to tell them apart, which in a regulated industry is a real trust and compliance problem, not just a UX annoyance.</li>
+  </ul></section>
+  <section class="script-section" id="px-role"><h3>My Responsibility</h3><ul>
+    <li>I was the UX designer and researcher on this engagement, working through Cognizant alongside Prudential stakeholders.</li>
+    <li>I owned the research that diagnosed the IA failures, designed the new task-oriented architecture, built and tested the prototypes, and delivered the high-fidelity design with accessibility and developer specs.</li>
+  </ul></section>
+  <section class="script-section" id="px-discovery"><h3>Discovery</h3><ul>
+    <li>I mapped the full technology environment and content lifecycle first, then ran twenty-two moderated interviews with advisors about their objectives, tasks, and pain points.</li>
+    <li>The core method here was card sorting — open and closed sorts with forty advisors using Optimal Workshop — to understand how they actually mentally categorized all this content.</li>
+    <li>Once I had a proposed structure, I validated it with tree testing across thirty advisors before any visual design started, and I ran timed task-success studies on the current portal across eight high-frequency tasks to get a real baseline.</li>
+    <li>Analytics backed up what I was hearing — 67% of search sessions ended in zero clicks, meaning people were scanning results and just leaving rather than clicking through.</li>
+  </ul></section>
+  <section class="script-section" id="px-turn"><h3>The Turning Point</h3><ul>
+    <li>The card sort data was the turning point, and it did something research doesn't always get to do — it settled an internal disagreement. Every stakeholder had an opinion about how the navigation should be organized, but the sort data represented forty actual advisors' mental models, not internal preference.</li>
+    <li>It showed advisors organize everything by task — what they're trying to accomplish — not by Prudential's product-line structure. That single finding invalidated the existing IA completely and justified starting over rather than patching what was there.</li>
+  </ul></section>
+  <section class="script-section" id="px-design"><h3>Design Decisions</h3><ul>
+    <li>I rebuilt the navigation around task-oriented categories — "prepare for a client meeting," "manage a policy," "get compliant" — instead of product-line categories, so the structure matched how advisors actually think about their day.</li>
+    <li>I redesigned search to be predictive with contextual filtering by content type and date, ranked by relevance, and put "last verified" dates directly on search results — that came straight out of the trust concerns advisors raised in interviews.</li>
+    <li>I added visible publication and "last reviewed" dates across all content, with callouts for recently updated material, which addressed the trust erosion problem directly.</li>
+    <li>I also built a real onboarding path for new advisors — curated checklists, video walkthroughs, quick-reference guides — because research showed advisors under twelve months were relying almost entirely on colleagues or phone support instead of the portal itself.</li>
+    <li>Getting the IA right wasn't one attempt — two proposed structures failed tree testing before I landed on one that worked, and catching that at the tree-testing stage instead of after high-fidelity design was a real efficiency win.</li>
+  </ul></section>
+  <section class="script-section" id="px-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>I ran a full-day design thinking workshop with Prudential stakeholders and advisor representatives together, which helped ground the redesign in evidence everyone in the room had seen firsthand.</li>
+    <li>I tested paper prototypes in rapid cycles before moving to digital, then validated functional Figma prototypes covering all the primary advisor journeys in moderated sessions, measuring task success quantitatively at each stage.</li>
+    <li>The content freshness indicators weren't originally in scope — advisors raised the need for them directly in interviews, and adding them turned into one of the highest-rated improvements in post-launch feedback.</li>
+  </ul></section>
+  <section class="script-section" id="px-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>Task success on content-findability tasks improved 71% against the pre-redesign baseline, average time on task dropped 52% across the eight most frequent advisor journeys, and support call volume dropped 33% within ninety days of launch.</li>
+    <li>The real lesson here is that card sorting is probably the most underused tool in a portal redesign — it turns a room full of opinions about navigation into actual data, and that data can settle arguments that would otherwise come down to whoever has the most seniority in the room.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>The write-up doesn't break out exactly how the work split between me and the rest of the Cognizant team — worth having a clear answer on scope if that comes up.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="pruxpress" data-panel="followups">
+  <ol class="followup-list">
+    <li>Walk me through how you used card sorting data to resolve a disagreement with a stakeholder about navigation.</li>
+    <li>What did the two IA structures that failed tree testing look like, and what specifically was wrong with them?</li>
+    <li>How did you decide which advisor-suggested features, like the freshness indicators, made it into scope versus which didn't?</li>
+    <li>In a regulated industry like this, how did you balance advisor mental models against compliance requirements for how information had to be presented?</li>
+    <li>How did you validate that the redesigned search actually fixed the 67% zero-click problem?</li>
+  </ol>
+</article>
+
+<!-- ============ 06 Lifely ============ -->
+<article class="panel" data-case="lifely" data-panel="intro">
+  <ul class="intro-list">
+    <li>Lifely is a term life insurance startup targeting Gen Z and younger millennials, a group that's historically avoided thinking about life insurance altogether.</li>
+    <li>The core challenge was acquisition — most visitors who started a quote never finished it, and the existing design read as corporate and conservative to an audience that wasn't going to trust that.</li>
+    <li>I was the UX designer and researcher, owning research through the full visual redesign, working through Cognizant.</li>
+    <li>The turning point in research was realizing people weren't avoiding the product because of the topic, they were avoiding it because they felt under-qualified to make the decision — that reframed the whole problem from "make forms shorter" to "make people feel capable of answering."</li>
+    <li>I replaced the multi-field quote form with a conversational, one-question-at-a-time flow with plain-language explanations for why each question was being asked.</li>
+    <li>Sixty days after launch, quote completion was up 47%, mobile engagement was up 38%, and overall conversion was up 31%.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="lifely" data-panel="script">
+  <nav class="jumprail">
+    <a href="#lf-opening">Opening</a><a href="#lf-problem">Problem</a><a href="#lf-role">My Role</a><a href="#lf-discovery">Discovery</a><a href="#lf-turn">Turning Point</a><a href="#lf-design">Decisions</a><a href="#lf-collab">Collaboration</a><a href="#lf-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="lf-opening"><h3>Opening</h3><ul>
+    <li>Lifely is a term life insurance startup trying to reach Gen Z and younger millennials — people between about 24 and 35 who mostly hadn't engaged with life insurance as a category at all.</li>
+    <li>The business challenge was straightforward to state and hard to solve: how do you sell a product people actively avoid thinking about, to an audience unfamiliar with the category, through a website that's your only acquisition channel.</li>
+    <li>Sixty-five percent of their traffic was mobile, and most visitors were comparison shopping, so the experience had to work on a phone, in a hurry.</li>
+  </ul></section>
+  <section class="script-section" id="lf-problem"><h3>The Problem</h3><ul>
+    <li>As a new entrant, Lifely was competing against brands with decades of built-up trust, so visibility and credibility were both working against them from day one.</li>
+    <li>Most people who started a quote request abandoned it partway through.</li>
+    <li>And the existing design read as corporate and conservative, which was actively working against connecting with a younger audience.</li>
+  </ul></section>
+  <section class="script-section" id="lf-role"><h3>My Responsibility</h3><ul>
+    <li>I was the UX designer and researcher on this, working through Cognizant, and I owned the research, the information architecture, the interaction design, and the visual design for the full site redesign — research through implementation, not handed off partway.</li>
+  </ul></section>
+  <section class="script-section" id="lf-discovery"><h3>Discovery</h3><ul>
+    <li>I ran sixteen in-depth interviews with people in that 24 to 35 age range specifically about how they made financial decisions and what they actually felt about insurance as a category.</li>
+    <li>I used Hotjar heatmaps and session recordings to find the exact points in the existing flow where people were dropping off, not just the general shape of it.</li>
+    <li>I did a competitive UX audit across eight direct and adjacent players, including Lemonade and Bestow, and paired that with mobile behavior analysis since that's where most of the traffic actually was.</li>
+    <li>The insight that mattered most: the barrier wasn't fear of the topic, it was that people felt under-qualified to make the decision — they didn't think they knew enough to answer the questions being asked of them.</li>
+    <li>I also found that people exposed to a conversational, one-question-at-a-time format converted at meaningfully higher rates than a traditional form, that named, specific customer stories built more trust than generic star ratings, and that abandonment roughly tripled once an input required more than three consecutive taps on mobile.</li>
+  </ul></section>
+  <section class="script-section" id="lf-turn"><h3>The Turning Point</h3><ul>
+    <li>The turning point was that "under-qualified" finding — once I understood the barrier wasn't emotional avoidance of the topic, it was a confidence gap about the decision itself, the whole design direction shifted.</li>
+    <li>Instead of optimizing the existing form to be shorter, I redesigned the entire flow as a conversation — one question at a time, with a plain-language explanation of why we were asking, so people never had to guess whether a question was relevant to them.</li>
+  </ul></section>
+  <section class="script-section" id="lf-design"><h3>Design Decisions</h3><ul>
+    <li>The core decision was replacing the multi-field form with a single-question-per-screen conversational flow — no more than fifteen fields visible at once collapsed down to one thing at a time, each with a simple way to answer.</li>
+    <li>I added "why we ask" explainers next to sensitive or confusing questions, giving people the context they needed to answer confidently instead of guessing or bailing out.</li>
+    <li>I sequenced the questions deliberately — easier, non-sensitive questions like age and gender came first, building momentum before asking for anything that felt more personal or higher-commitment, like contact information.</li>
+    <li>I restructured the site's information architecture around the actual questions people were asking themselves — "do I need this," "how much does it cost," "is this real" — instead of organizing around product features the way the old site did.</li>
+    <li>I rebuilt the visual identity to feel warm and human instead of corporate, while keeping it fully WCAG 2.1 AA compliant on contrast, focus management, and screen reader compatibility.</li>
+    <li>I tested four wireframe iterations with five target users between each round before this went into build.</li>
+  </ul></section>
+  <section class="script-section" id="lf-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>The conversational UI direction wasn't just a hunch — it came directly out of research showing it converted better, and I validated that hypothesis before committing design time to build it out fully.</li>
+    <li>There was some internal resistance early on to adding the "why we ask" explainers — it felt like extra content stakeholders worried would slow people down — but the data after launch showed the opposite: people who read those explainers converted at twice the rate of people who skipped them.</li>
+    <li>I kept monitoring Hotjar post-launch and ran a brand perception survey to see whether "trustworthy" and "modern" scores actually moved, not just whether the funnel numbers improved.</li>
+  </ul></section>
+  <section class="script-section" id="lf-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>Within sixty days of launch, quote flow completion was up 47%, mobile session duration and engagement were up 38%, and overall visitor-to-application conversion was up 31%.</li>
+    <li>The "why we ask" explainers alone converted at twice the rate for people who read them, which is a good reminder that education can be a conversion mechanism, not just something that slows people down.</li>
+    <li>If I had to name the real lesson here, it's that conversational UI worked because it addressed real anxiety, not because it was a trendy pattern — the empathy was the point, not the novelty.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>I don't have the exact numbers from the post-launch brand perception survey to quote directly — worth confirming those before using them in an interview.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="lifely" data-panel="followups">
+  <ol class="followup-list">
+    <li>How did you validate that people felt "under-qualified" rather than just uninterested or price-sensitive?</li>
+    <li>Walk me through the internal pushback on the "why we ask" explainers — how did you make the case before you had the post-launch data?</li>
+    <li>How did you decide the order of questions in the conversational flow — what went first and why?</li>
+    <li>Did you test whether simply shortening the traditional form would have gotten you the same lift, or did you go straight to the conversational format?</li>
+    <li>How did you balance emotional, empathetic design with the accessibility requirements?</li>
+  </ol>
+</article>
+
+<!-- ============ 07 CVS ============ -->
+<article class="panel" data-case="cvs" data-panel="intro">
+  <ul class="intro-list">
+    <li>I worked on CVS Health's pharmacy claims portal — the tool millions of patients use to submit reimbursement claims, check status, and understand their coverage.</li>
+    <li>The portal was built around CVS's internal workflow, not patient needs, and it was generating about 45,000 support calls a month, with a huge share of those just people asking what a status message meant.</li>
+    <li>I was the lead UX designer and researcher, owning research, interaction design, and accessibility strategy from discovery through handoff.</li>
+    <li>The turning point was finding that screen reader users couldn't complete a claim submission at all — the form had no programmatic labels, so an accessibility problem was also, structurally, a usability problem for everyone.</li>
+    <li>I rewrote the status language into plain English, collapsed a seven-screen submission into three steps, and rebuilt the whole thing to meet WCAG 2.1 AA.</li>
+    <li>Within the first quarter, support call volume dropped 58%, task completion on claim submission improved 44%, and we resolved more than 140 accessibility violations.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="cvs" data-panel="script">
+  <nav class="jumprail">
+    <a href="#cv-opening">Opening</a><a href="#cv-problem">Problem</a><a href="#cv-role">My Role</a><a href="#cv-discovery">Discovery</a><a href="#cv-turn">Turning Point</a><a href="#cv-design">Decisions</a><a href="#cv-collab">Collaboration</a><a href="#cv-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="cv-opening"><h3>Opening</h3><ul>
+    <li>I worked on CVS Health's pharmacy claims portal, which is where patients go to submit a claim for reimbursement, check its status, understand what's covered, and resolve disputes.</li>
+    <li>This touches a population that skews toward higher rates of visual, motor, and cognitive disability than the general public, and most of them have no insurance industry background at all.</li>
+    <li>The portal had been built around CVS's internal workflow requirements rather than what patients actually needed to understand and act on, and that was generating real cost — about 45,000 support calls a month.</li>
+  </ul></section>
+  <section class="script-section" id="cv-problem"><h3>The Problem</h3><ul>
+    <li>More than 140 WCAG 2.1 violations meant screen reader users couldn't complete tasks in the portal at all — not "harder," genuinely couldn't.</li>
+    <li>Just three comprehension failures were driving 62% of the monthly support volume — people weren't confused about many things, they were confused about a few specific things, over and over.</li>
+    <li>There was no mobile optimization despite 58% of traffic coming from mobile.</li>
+    <li>And people with disabilities were effectively excluded from the claim submission workflow entirely.</li>
+  </ul></section>
+  <section class="script-section" id="cv-role"><h3>My Responsibility</h3><ul>
+    <li>I was the lead UX designer and researcher, and I owned research, interaction design, and accessibility strategy from discovery all the way through design handoff to engineering.</li>
+    <li>I ran two tracks in parallel — accessibility remediation and the broader UX redesign — with regular checkpoints between them so they stayed aligned instead of drifting into two separate projects.</li>
+  </ul></section>
+  <section class="script-section" id="cv-discovery"><h3>Discovery</h3><ul>
+    <li>I ran a heuristic evaluation against Nielsen's heuristics plus healthcare-specific principles, which surfaced 89 usability issues across severity levels.</li>
+    <li>For accessibility specifically, I combined automated scanning with Axe and manual testing with NVDA and keyboard-only navigation, which is where the 140-plus WCAG violations came from.</li>
+    <li>I ran twenty moderated usability sessions — fourteen general population users and six users with disabilities — across eight core portal tasks, and separately analyzed three months of support call transcripts to see exactly what was driving call volume.</li>
+    <li>The finding that mattered most: screen reader users were completely unable to complete a claim submission. The form had six fields with no programmatic labels, and the error summary was visually present but never actually announced to assistive technology — so it may as well not have existed for those users.</li>
+    <li>On the business side, the support call analysis showed fixing just three specific content problems could meaningfully cut support costs.</li>
+  </ul></section>
+  <section class="script-section" id="cv-turn"><h3>The Turning Point</h3><ul>
+    <li>The turning point was realizing 62% of support volume traced back to just three comprehension failures — all of them fixable through plain language and better status design, not a full platform rebuild.</li>
+    <li>That reframed the highest-leverage move from "redesign everything" to "fix the language first," because the content problems were driving the most cost and were also the fastest to fix.</li>
+  </ul></section>
+  <section class="script-section" id="cv-design"><h3>Design Decisions</h3><ul>
+    <li>I rewrote the status system into plain language — "Adjudicated" became "Processed, payment on the way" — and every status got a one-sentence explanation of what it meant for the patient and what, if anything, they needed to do next.</li>
+    <li>I collapsed the seven-screen submission flow into a clearly signposted three-step process, with auto-save and draft recovery so people wouldn't lose their progress and have to start over.</li>
+    <li>I rebuilt accessibility from the ground up — every form field got programmatic labels and descriptions, error states got both visual and programmatic notification, and focus management was implemented throughout, not patched in after the fact.</li>
+    <li>I turned the fixed-width desktop claims table into a responsive, card-based layout so the critical information was legible on any screen size, which mattered given more than half the traffic was mobile.</li>
+    <li>Every design deliverable I handed off included an accessibility annotation layer — ARIA labels, focus order, error announcement behavior, keyboard interaction — so engineering wasn't guessing at how any of it should behave.</li>
+  </ul></section>
+  <section class="script-section" id="cv-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>I ran the accessibility and redesign tracks in parallel with regular integration checkpoints, so decisions in one track didn't quietly break something in the other.</li>
+    <li>I tested with fourteen general population users and six users with disabilities in the same research program, not as separate efforts, which is where I caught issues automated tools alone would have completely missed.</li>
+    <li>Post-launch, I measured task completion again against that same pre-redesign baseline to see if the changes actually held up in practice, not just in testing.</li>
+  </ul></section>
+  <section class="script-section" id="cv-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>We resolved more than 140 WCAG 2.1 violations and reached AA compliance, support call volume dropped 58% within the first quarter, and task completion for claim submission improved 44% against the pre-redesign baseline.</li>
+    <li>The biggest lesson for me was that in healthcare specifically, the words on the screen carry more weight than the visual design — the plain-language rewrite was the single highest-impact change in the whole project.</li>
+    <li>The other thing I'd underline is that testing only with the general population would have shipped a product still unusable for screen reader users — including people with disabilities in research from the start surfaced problems automated auditing tools never would have caught.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>The write-up frames the roughly $2M annual figure as what the support-call analysis projected from fixing those three content issues, not a confirmed, audited savings number — worth being precise about that distinction if it comes up.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="cvs" data-panel="followups">
+  <ol class="followup-list">
+    <li>Walk me through the moment you realized screen reader users couldn't submit a claim at all — what did that conversation with stakeholders look like?</li>
+    <li>How did you prioritize between the three comprehension failures driving 62% of support calls and the 89 other usability issues you found?</li>
+    <li>What did running the accessibility track and the redesign track in parallel actually look like week to week — how did you keep them aligned?</li>
+    <li>How did you translate insurance jargon like "adjudicated" into plain language without losing legal or regulatory accuracy?</li>
+    <li>How did you validate the accessibility fixes actually worked for real assistive technology users, not just against an automated checklist?</li>
+  </ol>
+</article>
+
+<!-- ============ 08 Walmart ============ -->
+<article class="panel" data-case="walmart" data-panel="intro">
+  <ul class="intro-list">
+    <li>I designed Pulse, an inventory app for Walmart's frontline associates, replacing a manual, paper-based inventory adjustment process across their store network.</li>
+    <li>The core problem was a lag between what was physically on the shelf and what the central system showed, because associates were reconciling paper logs hours or even days after the fact.</li>
+    <li>I was the UX designer and researcher, running the research and design end to end, working through Cognizant.</li>
+    <li>The turning point was realizing associates already had a working alternative — paper — so this wasn't a compliance rollout, it was a genuine competition for adoption. The design question became: is this faster than paper, for someone standing in an aisle mid-shift.</li>
+    <li>I built a one-tap inventory adjustment that synced in under ten seconds, a real-time dashboard for managers, and cross-department discrepancy flagging.</li>
+    <li>Adjustment cycle time dropped 76%, inventory accuracy improved 29%, and 94% of associates had adopted it within six weeks.</li>
+  </ul>
+</article>
+
+<article class="panel" data-case="walmart" data-panel="script">
+  <nav class="jumprail">
+    <a href="#wm-opening">Opening</a><a href="#wm-problem">Problem</a><a href="#wm-role">My Role</a><a href="#wm-discovery">Discovery</a><a href="#wm-turn">Turning Point</a><a href="#wm-design">Decisions</a><a href="#wm-collab">Collaboration</a><a href="#wm-outcomes">Outcomes</a>
+  </nav>
+  <section class="script-section" id="wm-opening"><h3>Opening</h3><ul>
+    <li>I designed Pulse, an inventory management app for Walmart, used by frontline associates, department leads, and store managers across their store network.</li>
+    <li>The people using this are on the floor during a shift — often wearing gloves, moving between locations, sometimes in loud or dimly lit parts of the store.</li>
+    <li>The problem it replaced was a manual, paper-based inventory adjustment process that was slow, error-prone, and essentially impossible to audit.</li>
+  </ul></section>
+  <section class="script-section" id="wm-problem"><h3>The Problem</h3><ul>
+    <li>Paper logs got reconciled with the central system hours or sometimes days later, so there was a real lag between what was physically on the shelf and what the system showed.</li>
+    <li>Department managers had no real-time visibility across their sections — no way to check stock levels without physically walking the floor or making a phone call.</li>
+    <li>Tracking spanned multiple locations with multiple log sheets and no single source of truth, and time-tracking was completely disconnected from the actual task someone was doing, so there was no way to analyze labor cost by task type.</li>
+    <li>All of that showed up downstream as out-of-stock errors, customer complaints, and unnecessary replenishment costs.</li>
+  </ul></section>
+  <section class="script-section" id="wm-role"><h3>My Responsibility</h3><ul>
+    <li>I was the UX designer and researcher on this, working through Cognizant, and I led the app's design along with an immersive, store-embedded research program.</li>
+    <li>I ran the associate interviews myself, mapped the full workflow, facilitated the stakeholder review workshops, and stayed through the pilot rollout and the design iterations that came out of it.</li>
+  </ul></section>
+  <section class="script-section" id="wm-discovery"><h3>Discovery</h3><ul>
+    <li>I spent three days embedded in two stores during peak and off-peak hours, watching inventory adjustment happen in real time, not just hearing about it afterward.</li>
+    <li>I ran twenty-eight interviews with associates across roles, tenure, and departments, and mapped the end-to-end inventory adjustment process in detail — every step, every handoff, every tool involved.</li>
+    <li>I specifically researched the physical conditions the app would be used under — gloved hands, bright or dim lighting, noisy environments, people moving between locations — because a design that only worked in ideal conditions wasn't going to work here at all.</li>
+    <li>What came out of that: associates needed interactions they could complete in a five-second pause, not a sustained, multi-step task. Experienced associates were genuinely skeptical of digital tools because they'd seen slow, unreliable ones come and go, and had learned paper was more dependable. And discrepancies were often spotted by associates just passing through a section, not only the person who owned it — so this needed to work socially, not just individually.</li>
+  </ul></section>
+  <section class="script-section" id="wm-turn"><h3>The Turning Point</h3><ul>
+    <li>The turning point was recognizing associates already had a working alternative in paper, which meant adoption wasn't going to happen by mandate — it had to be earned by being faster.</li>
+    <li>That gave me a single, concrete design question to test every decision against: would an associate be able to complete this accurately while standing in an aisle during a busy shift? That question cut through a lot of complexity I might otherwise have added.</li>
+  </ul></section>
+  <section class="script-section" id="wm-design"><h3>Design Decisions</h3><ul>
+    <li>The core interaction was one-tap inventory adjustment — scan a SKU, see the current record, use one large increment or decrement control, confirm, and it syncs to the central system immediately. The whole thing completes in under ten seconds instead of the old hours-long paper-to-system lag.</li>
+    <li>I gave department managers a real-time, multi-location dashboard so they could see stock levels across their section and flag anything below threshold without leaving the stockroom or picking up a phone.</li>
+    <li>I built cross-department discrepancy flagging so any associate passing through could flag an issue, with it routing automatically to the right department lead — that took the informal peer-spotting behavior I'd seen in research and turned it into an actual structured workflow.</li>
+    <li>I tied time-tracking to specific task types — stocking, inventory count, discrepancy resolution — which created the first reliable data set connecting labor hours to actual operational tasks at the store level.</li>
+    <li>Every interactive element had to work with a single large touch target, because gloved hands and single-handed use ruled out small buttons or precision gestures anywhere in the core workflow.</li>
+  </ul></section>
+  <section class="script-section" id="wm-collab"><h3>Collaboration &amp; Validation</h3><ul>
+    <li>I ran iterative wireframe review workshops with store managers, operations leadership, and IT to align on functionality and technical constraints before investing in high-fidelity design.</li>
+    <li>I tested prototypes in actual store environments, not conference rooms, because the conference room version of testing looked strong and then in-store testing surfaced eleven issues that were completely invisible in the lab — screen glare, buttons too small for gloved hands, audio alerts nobody could hear in a noisy stockroom.</li>
+    <li>I piloted in three stores with structured feedback collection, then ran two more iteration cycles based on real usage before the broader rollout.</li>
+  </ul></section>
+  <section class="script-section" id="wm-outcomes"><h3>Outcomes &amp; Reflection</h3><ul>
+    <li>Inventory adjustment cycle time dropped 76%, from a paper-to-system lag measured in hours to under thirty seconds with real-time sync. Inventory accuracy improved 29% across pilot stores, and associate adoption hit 94% within six weeks of pilot launch.</li>
+    <li>The biggest thing this project proved to me is that internal tools deserve the same design rigor as consumer products — there's a common assumption that employees will just use whatever they're given, but associates had a real alternative in paper, and they only adopted Pulse because it was genuinely faster.</li>
+    <li>The other lesson: in-context testing isn't optional for operational tools. The gap between what worked in a conference room and what worked on the actual floor was bigger than I expected going in.</li>
+    <li class="callout"><span class="callout-tag">Confirm with me</span>The write-up doesn't specify how the conversational, natural-language reporting feature performed post-launch — worth confirming that detail if it comes up.</li>
+  </ul></section>
+</article>
+
+<article class="panel" data-case="walmart" data-panel="followups">
+  <ol class="followup-list">
+    <li>Walk me through the eleven issues that showed up in-store but not in conference room testing — what changed as a result?</li>
+    <li>How did you design for adoption when associates already had a working alternative, instead of relying on a mandate?</li>
+    <li>What did the "five-second interaction" constraint rule out that you might otherwise have designed?</li>
+    <li>How did the cross-department flagging feature actually change behavior on the floor, versus what associates were doing informally before?</li>
+    <li>How did you validate the design would hold up across different Walmart store formats and regions, not just the two you observed directly?</li>
+  </ol>
+</article>
+
+<!-- ============ Notes page (shown for all 3 tabs) ============ -->
+<article class="panel" data-case="notes" data-panel="intro">
+  <div class="notes-page">
+    <h2>How to use this</h2>
+    <p>Eight portfolio projects, each turned into a 60–90 second intro, a full 5–7 minute walkthrough, and five likely follow-ups. Everything here is built from what's on prabhakarfolio.com — nothing invented.</p>
+    <ul>
+      <li><strong>Pick by what the room cares about.</strong> Governance and fintech → NPA or PruXpress. AI and CRM → CrowdStrike. Accessibility → CVS. Frontline / operational UX → Walmart or Autodesk. 0-to-1 and design systems → VentureBacked or Lifely.</li>
+      <li><strong>The Intro tab</strong> is for "walk me through one of your projects." Say it in your own cadence — it's meant to run 60–90 seconds, not be recited word for word.</li>
+      <li><strong>The Full Script tab</strong> runs long on purpose. In the room, you'll naturally compress the sections the interviewer isn't leaning into and expand the ones they ask about. Practice the whole thing once, then practice cutting it live.</li>
+      <li><strong>Amber boxes marked "Confirm with me"</strong> are placeholders, not gaps to leave in an actual interview — fill those in with a real number or a clear answer before you say them out loud.</li>
+      <li><strong>Teal tags marked "Show: ..."</strong> only appear on NPA and VentureBacked — the two case studies with visible screens on the portfolio site. Pull those screens up if you're presenting on a share screen.</li>
+      <li><strong>The timer</strong> in the sidebar tracks against whichever tab you're on — 60–90 sec for Intro, 5–7 min for Full Script. It turns teal once you're in range and amber once you've run long.</li>
+      <li><strong>Print</strong> prints the whole case study — intro, script, and follow-ups together — regardless of which tab is open, so you can read from paper if you'd rather not have a screen in front of you.</li>
+    </ul>
+  </div>
+</article>
+<article class="panel" data-case="notes" data-panel="script">
+  <div class="notes-page">
+    <h2>How to use this</h2>
+    <p>See the Intro tab for the full set of notes — they apply across all three tabs on this page.</p>
+  </div>
+</article>
+<article class="panel" data-case="notes" data-panel="followups">
+  <div class="notes-page">
+    <h2>How to use this</h2>
+    <p>See the Intro tab for the full set of notes — they apply across all three tabs on this page.</p>
+  </div>
+</article>
+
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+  var state = { case: 'npa', panel: 'intro' };
+
+  var caseData = {
+    npa: {eyebrow:'Case Study 01', title:'JPMorganChase — New Product Assessment'},
+    venturebacked: {eyebrow:'Case Study 02', title:'VentureBacked — Founder ↔ Investor Platform'},
+    crowdstrike: {eyebrow:'Case Study 03', title:'CrowdStrike — Salesforce Sales Cloud'},
+    autodesk: {eyebrow:'Case Study 04', title:'Autodesk — Agent Experience'},
+    pruxpress: {eyebrow:'Case Study 05', title:'PruXpress — Advisor Portal Redesign'},
+    lifely: {eyebrow:'Case Study 06', title:'Lifely — Term Life Insurance UX'},
+    cvs: {eyebrow:'Case Study 07', title:'CVS Health — Claims Portal'},
+    walmart: {eyebrow:'Case Study 08', title:'Walmart — Pulse Inventory App'},
+    notes: {eyebrow:'Reference', title:'How to Use This'}
+  };
+
+  var caseItems = Array.prototype.slice.call(document.querySelectorAll('.case-item'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+  var caseTitle = document.getElementById('caseTitle');
+  var caseEyebrow = document.getElementById('caseEyebrow');
+  var shell = document.getElementById('shell');
+
+  function render(){
+    caseItems.forEach(function(btn){ btn.classList.toggle('active', btn.dataset.case === state.case); });
+    tabs.forEach(function(btn){
+      var on = btn.dataset.panel === state.panel;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(function(p){
+      p.classList.toggle('active', p.dataset.case === state.case && p.dataset.panel === state.panel);
+    });
+    var d = caseData[state.case];
+    if(d){ caseTitle.textContent = d.title; caseEyebrow.textContent = d.eyebrow; }
+    updateTimerTarget();
+    shell.classList.remove('nav-open');
+    document.getElementById('panels').scrollTop = 0;
+    window.scrollTo(0,0);
+  }
+
+  caseItems.forEach(function(btn){
+    btn.addEventListener('click', function(){ state.case = btn.dataset.case; render(); });
+  });
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){ state.panel = btn.dataset.panel; render(); resetTimer(); });
+  });
+
+  // Mobile nav
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    shell.classList.toggle('nav-open');
+  });
+  shell.addEventListener('click', function(e){
+    if(shell.classList.contains('nav-open') && e.target === shell){ shell.classList.remove('nav-open'); }
+  });
+
+  // Text size
+  document.getElementById('textSizeBtn').addEventListener('click', function(){
+    document.documentElement.classList.toggle('text-lg');
+  });
+
+  // Copy current panel
+  document.getElementById('copyBtn').addEventListener('click', function(btnEvt){
+    var active = document.querySelector('.panel.active');
+    if(!active) return;
+    var text = active.innerText;
+    var btn = btnEvt.currentTarget;
+    function done(){ var old = btn.textContent; btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = old; }, 1200); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, fallbackCopy);
+    } else { fallbackCopy(); }
+    function fallbackCopy(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      try{ document.execCommand('copy'); done(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+
+  // Print whole case, all three panels
+  document.getElementById('printBtn').addEventListener('click', function(){
+    document.body.classList.add('printing');
+    panels.forEach(function(p){ p.style.display = (p.dataset.case === state.case) ? 'block' : 'none'; });
+    window.print();
+  });
+  window.addEventListener('afterprint', function(){
+    document.body.classList.remove('printing');
+    panels.forEach(function(p){ p.style.display = ''; });
+    render();
+  });
+
+  // Timer
+  var timerEl = document.getElementById('timer');
+  var timerDisplay = document.getElementById('timerDisplay');
+  var timerTarget = document.getElementById('timerTarget');
+  var timerStart = document.getElementById('timerStart');
+  var timerReset = document.getElementById('timerReset');
+  var seconds = 0, running = false, intervalId = null;
+
+  function updateTimerTarget(){
+    if(state.panel === 'intro'){ timerTarget.textContent = 'Target · 60–90 sec'; }
+    else if(state.panel === 'script'){ timerTarget.textContent = 'Target · 5–7 min'; }
+    else { timerTarget.textContent = 'No timer for this tab'; }
+  }
+  function format(s){
+    var m = Math.floor(s/60), r = s%60;
+    return (m<10?'0':'')+m+':'+(r<10?'0':'')+r;
+  }
+  function tick(){
+    seconds++;
+    timerDisplay.textContent = format(seconds);
+    var lo, hi;
+    if(state.panel === 'intro'){ lo=60; hi=90; }
+    else if(state.panel === 'script'){ lo=300; hi=420; }
+    else { lo=null; hi=null; }
+    timerEl.classList.remove('in-range','over');
+    if(lo !== null){
+      if(seconds >= lo && seconds <= hi){ timerEl.classList.add('in-range'); }
+      else if(seconds > hi){ timerEl.classList.add('over'); }
+    }
+  }
+  function resetTimer(){
+    seconds = 0; timerDisplay.textContent = '00:00';
+    timerEl.classList.remove('in-range','over');
+    if(running){ clearInterval(intervalId); running=false; timerStart.textContent='Start'; }
+  }
+  timerStart.addEventListener('click', function(){
+    if(running){ clearInterval(intervalId); running=false; timerStart.textContent='Start'; }
+    else { intervalId = setInterval(tick, 1000); running=true; timerStart.textContent='Pause'; }
+  });
+  timerReset.addEventListener('click', resetTimer);
+
+  render();
+})();
+</script>
+
+</body>
+</html>

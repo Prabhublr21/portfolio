@@ -1,0 +1,9 @@
+# robots.txt — prabhakarfolio.com
+
+User-agent: *
+Allow: /
+
+# Private, unlisted pages — not for indexing.
+Disallow: /script.html
+
+Sitemap: https://www.prabhakarfolio.com/sitemap.xml
